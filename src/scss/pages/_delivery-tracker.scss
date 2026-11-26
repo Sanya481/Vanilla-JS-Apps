@@ -1,0 +1,277 @@
+.delivery-tracker-card {
+  position: relative;
+  background: linear-gradient(135deg, #460f0f 0%, #455c1e 50%, #0d3819 100%);
+  border: 1px solid #4a90e2;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.1),
+    inset 0 0 30px rgba(74, 144, 226, 0.05);
+
+  // Анимированная линия маршрута
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #4a90e2,
+      #00d4ff,
+      transparent
+    );
+    animation: deliveryRoute 4s linear infinite;
+  }
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.2),
+      0 0 50px rgba(0, 212, 255, 0.3), inset 0 0 40px rgba(74, 144, 226, 0.1);
+
+    .delivery-route-line::before {
+      transform: translateX(100%);
+    }
+
+    .delivery-link {
+      text-shadow: 0 0 10px #00d4ff;
+    }
+
+    .card-icon {
+      animation: deliveryPulse 2s ease-in-out infinite;
+    }
+  }
+}
+
+// Фоновая сетка карты
+.delivery-map-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+  background-image: linear-gradient(
+      rgba(74, 144, 226, 0.3) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(74, 144, 226, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+// Точки на карте (пункты доставки)
+.delivery-pin-points {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &::before,
+  &::after,
+  &::first-letter {
+    content: '📍';
+    position: absolute;
+    font-size: 1.2rem;
+    opacity: 0.6;
+    animation: pinGlow 3s ease-in-out infinite;
+  }
+
+  &::before {
+    top: 23%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  &::after {
+    top: 5%;
+    left: 85%;
+    animation-delay: 1.5s;
+  }
+
+  &::first-letter {
+    top: 45%;
+    left: 45%;
+    animation-delay: 0.8s;
+  }
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  color: #e6f2ff;
+
+  .card-icon {
+    display: flex;
+    justify-content: center;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px #4a90e2;
+    filter: drop-shadow(0 0 8px rgba(74, 144, 226, 0.6));
+  }
+
+  .delivery-title {
+    font-family: 'Exo 2', 'Arial', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .route-text {
+    background: linear-gradient(45deg, #4a90e2, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+  }
+
+  .delivery-desc {
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #b3d1ff;
+    opacity: 0.9;
+  }
+}
+
+.delivery-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+
+  .delivery-badge {
+    background: linear-gradient(135deg, #4a90e2 0%, #00d4ff 100%);
+    color: #0f2b46;
+    padding: 0.6rem 1.4rem;
+    border-radius: 20px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: left 0.5s ease;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+
+      &::before {
+        left: 100%;
+      }
+    }
+  }
+
+  .delivery-link {
+    color: #00d4ff;
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &::after {
+      content: '⟫';
+      margin-left: 0.5rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: #4a90e2;
+
+      &::after {
+        transform: translateX(4px) scale(1.1);
+      }
+    }
+  }
+}
+
+// Анимации
+@keyframes deliveryRoute {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes deliveryPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 20px #4a90e2;
+  }
+  50% {
+    transform: scale(1.1);
+    text-shadow: 0 0 30px #4a90e2, 0 0 40px #00d4ff;
+  }
+}
+
+@keyframes pinGlow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .delivery-tracker-card {
+    margin: 1rem;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  .card-content {
+    padding: 1.5rem;
+
+    .card-icon {
+      font-size: 3rem;
+    }
+
+    .delivery-title {
+      font-size: 1.4rem;
+    }
+  }
+
+  .delivery-footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}

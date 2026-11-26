@@ -1,0 +1,222 @@
+@use '@/scss/utils/variables' as *;
+
+.book-card {
+  position: relative;
+  background: $bg-secondary;
+  border-radius: 0.8rem;
+  padding: 1.5rem 1rem 1.2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: visible;
+  margin-top: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: linear-gradient(to bottom, $bg-secondary 0%, #f9f9f9 100%);
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+  }
+
+  &__cover-container {
+    position: absolute;
+    top: -1.8rem;
+    right: 1.2rem;
+    width: 100px;
+    height: 150px;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
+    transform: rotate(3deg);
+    transition: all 0.3s ease;
+    z-index: 2;
+
+    &:hover {
+      transform: rotate(0) scale(1.05);
+    }
+  }
+
+  &__cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.3rem;
+    border: 2px solid white;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  &__header {
+    position: relative;
+    padding-bottom: 0.5rem;
+    padding-right: 7rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: $accent-color;
+      border-radius: 3px;
+    }
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  &__author {
+    font-size: 0.8rem;
+    color: #777;
+    margin: 0.2rem 0 0;
+    font-style: italic;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #ff9500;
+
+    &-stars {
+      color: #ffb400;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    &-value {
+      color: #ff9500;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+  }
+
+  &__description {
+    font-size: 0.78rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0.3rem 0;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #e63946;
+  }
+
+  &__button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    border-radius: 0.4rem;
+    background: linear-gradient(to right, #4361ee, #3a0ca3);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(67, 97, 238, 0.3);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '📚'; /* Иконка книжки */
+      font-size: 1rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(67, 97, 238, 0.4);
+      transform: translateY(-1px);
+
+      &::before {
+        transform: rotate(15deg);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__badges {
+    position: absolute;
+    top: -10px;
+    left: 0.5rem;
+    display: flex;
+    gap: 0.3rem;
+    z-index: 3;
+  }
+
+  &__badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &--bestseller {
+      background: #ff9500;
+      color: white;
+    }
+
+    &--new {
+      background: #34c759;
+      color: white;
+    }
+
+    &--hit {
+      background: #ff3b30;
+      color: white;
+    }
+  }
+
+  &__favorite {
+    position: absolute;
+    top: -5px;
+    right: -7px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.8);
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    &:hover {
+      color: #ff3b30;
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    &[data-favorite='true'] {
+      color: #ff3b30;
+    }
+  }
+}

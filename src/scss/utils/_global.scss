@@ -1,0 +1,16 @@
+// Класс для скрытия элемента визуально, но оставления его доступным для скринридеров
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+
+  // Альтернативный вариант с clip-path (более современный)
+  // clip-path: inset(50%);
+}
+

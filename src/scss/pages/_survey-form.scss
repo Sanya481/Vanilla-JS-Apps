@@ -1,0 +1,80 @@
+.project-card.anime-ghibli {
+  background: #f8f3e6;
+  color: #5a4a3a;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #f5a623, #e74c3c, #4a6fa5, #28a745);
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .soot-sprite {
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  h2 {
+    color: #5a4a3a;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+
+    .small-dragon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,3C17,3 16,5 16,5C16,5 14,3 12,3C10,3 8,5 8,5C8,5 6,3 4,3C2,3 1,5 1,5V7C1,7 2,9 4,9C6,9 8,7 8,7C8,7 10,9 12,9C14,9 16,7 16,7C16,7 18,9 20,9C22,9 23,7 23,7V5C23,5 21,3 19,3Z" fill="%235A4A3A"/></svg>')
+        no-repeat center;
+      animation: float 4s ease-in-out infinite 1s;
+    }
+  }
+
+  p {
+    color: #7a6a5a;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .status-badge {
+    background: #e8f5e9;
+    color: #28a745;
+    border-radius: 20px;
+    padding: 5px 15px;
+
+    &::before {
+      content: '🍃';
+      margin-right: 5px;
+    }
+  }
+
+  .project-link.disabled {
+    color: #7a6a5a;
+    font-style: italic;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

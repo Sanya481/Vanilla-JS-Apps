@@ -1,0 +1,105 @@
+.message-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+}
+
+.message {
+  padding: 12px 20px;
+  border-radius: 15px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  min-width: 200px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.message--error {
+  background-color: #dc3545; /* красный */
+  border-left: 4px solid #a71e2a;
+  animation: shake 0.5s ease-in-out;
+}
+
+.message--error::before {
+  content: '⚠️';
+  margin-right: 8px;
+}
+
+.message--slow {
+  background-color: #ffc107; /* жёлтый */
+  color: #212529;
+  border-left: 4px solid #d39e00;
+  animation: bounceDown 0.5s ease-out;
+}
+
+.message--slow::before {
+  content: '🐌';
+  margin-right: 8px;
+}
+
+.message--abort {
+  background-color: #6c757d; /* серый */
+  border-left: 4px solid #495057;
+  animation: slideIn 0.3s ease-out, blink 2s ease-in-out 2;
+}
+
+.message--abort::before {
+  content: '⏰';
+  margin-right: 8px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounceDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

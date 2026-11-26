@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" /> -->
+    <title>JS Sandbox</title>
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <a href="/index.html" class="sidebar__logo"><span>JS</span> Sandbox</a>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="/book-store.html">
+                <span>🛒 Книжный магазин</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/library.html">
+                <span>📚 Домашняя библиотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/portfolio.html" class="sidebar__link">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link active">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/delivery-form.html" class="sidebar__link">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/card-crafter.html" class="sidebar__link">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+              <li class="sidebar__item">
+              <a href="/film-archive.html" class="sidebar__link">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+             <li class="sidebar__item">
+              <a href="/network-monitor.html" class="sidebar__link">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+             <li class="sidebar__item">
+              <a href="/warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/promise-loader.html" class="sidebar__link">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item" >
+              <a href="/delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="content content--survey">
+        <div class="survey">
+          <div class="survey__header">
+            <h1 class="survey__title">Помоги нам стать лучше!</h1>
+            <div class="survey__progress">
+              <div
+                class="survey__progress-bar"
+                style="width: 0%"
+                data-survey-progress-bar
+              ></div>
+              <span class="survey__progress-text" data-survey-progress-text
+                >0% завершено</span
+              >
+            </div>
+          </div>
+
+          <form class="survey-form" id="gamified-survey" data-game-survey>
+            <div
+              class="survey-form__section survey-form__section--active"
+              data-survey-form-section
+            >
+              <div class="survey-form__question">
+                <span class="survey-form__emoji">👋</span>
+                <h2 class="survey-form__question-text">Как тебя зовут?</h2>
+              </div>
+              <div class="survey-form__group">
+                <input
+                  type="text"
+                  id="gamefield-name"
+                  class="survey-form__input"
+                  placeholder="Твоё имя"
+                  required
+                  aria-required="true"
+                  minlength="2"
+                  maxlength="30"
+                  pattern="[A-Za-zА-Яа-яЁё\s]+"
+                  data-validate="name"
+                  name="name"
+                />
+                <label for="gamefield-name" class="survey-form__label"
+                  >Имя героя</label
+                >
+              </div>
+              <button type="button" class="survey-form__next">Далее →</button>
+            </div>
+
+            <div class="survey-form__section" data-survey-form-section>
+              <div class="survey-form__question">
+                <span class="survey-form__emoji">📧</span>
+                <h2 class="survey-form__question-text">
+                  Куда прислать награду?
+                </h2>
+              </div>
+              <div class="survey-form__group">
+                <input
+                  type="email"
+                  id="gamefield-email"
+                  class="survey-form__input"
+                  placeholder="email@example.com"
+                  required
+                  aria-required="true"
+                  name="email"
+                  data-validate="email"
+                />
+                <label for="gamefield-email" class="survey-form__label"
+                  >Волшебный email</label
+                >
+                <div class="error-message error-message--email" hidden>
+                  Введите корректный email (например: user@example.com)
+                </div>
+              </div>
+              <div class="survey-form__nav">
+                <button type="button" class="survey-form__prev">← Назад</button>
+                <button type="button" class="survey-form__next">Далее →</button>
+              </div>
+            </div>
+
+            <div class="survey-form__section" data-survey-form-section>
+              <div class="survey-form__question">
+                <span class="survey-form__emoji">⚡</span>
+                <h2 class="survey-form__question-text">Твоя сила?</h2>
+              </div>
+              <div class="survey-form__range-group">
+                <input
+                  type="range"
+                  id="gamefield-rating"
+                  class="survey-form__range"
+                  min="1"
+                  max="10"
+                  value="5"
+                  name="rating"
+                  data-game-field-rating
+                />
+                <div class="survey-form__range-labels">
+                  <span>Новичок</span>
+                  <span class="survey-form__level"
+                    >Уровень:
+                    <span id="level-value" data-level-value>5</span></span
+                  >
+                  <span>Профи</span>
+                </div>
+              </div>
+              <div class="survey-form__nav">
+                <button type="button" class="survey-form__prev">← Назад</button>
+                <button type="button" class="survey-form__next">Далее →</button>
+              </div>
+            </div>
+
+            <div class="survey-form__section" data-survey-form-section>
+              <div class="survey-form__question">
+                <span class="survey-form__emoji">🎮</span>
+                <h2 class="survey-form__question-text">Твои навыки</h2>
+              </div>
+              <div class="survey-form__skills">
+                <div class="survey-form__skill">
+                  <input
+                    type="checkbox"
+                    id="skill-sport"
+                    name="skills"
+                    value="sport"
+                    class="survey-form__checkbox"
+                  />
+                  <label for="skill-sport" class="survey-form__skill-label">
+                    <span class="survey-form__skill-icon">🏃</span>
+                    <span class="survey-form__skill-name">Спорт</span>
+                  </label>
+                </div>
+                <div class="survey-form__skill">
+                  <input
+                    type="checkbox"
+                    id="skill-music"
+                    name="skills"
+                    value="music"
+                    class="survey-form__checkbox"
+                  />
+                  <label for="skill-music" class="survey-form__skill-label">
+                    <span class="survey-form__skill-icon">🎵</span>
+                    <span class="survey-form__skill-name">Музыка</span>
+                  </label>
+                </div>
+                <div class="survey-form__skill">
+                  <input
+                    type="checkbox"
+                    id="skill-travel"
+                    name="skills"
+                    value="travel"
+                    class="survey-form__checkbox"
+                  />
+                  <label for="skill-travel" class="survey-form__skill-label">
+                    <span class="survey-form__skill-icon">✈️</span>
+                    <span class="survey-form__skill-name">Путешествия</span>
+                  </label>
+                </div>
+                <div class="survey-form__skill">
+                  <input
+                    type="checkbox"
+                    id="skill-movies"
+                    name="skills"
+                    value="movies"
+                    class="survey-form__checkbox"
+                  />
+                  <label for="skill-movies" class="survey-form__skill-label">
+                    <span class="survey-form__skill-icon">🎬</span>
+                    <span class="survey-form__skill-name">Кино</span>
+                  </label>
+                </div>
+              </div>
+              <div class="survey-form__nav">
+                <button type="button" class="survey-form__prev">← Назад</button>
+                <button type="button" class="survey-form__next">Далее →</button>
+              </div>
+            </div>
+
+            <div class="survey-form__section" data-survey-form-section>
+              <div class="survey-form__question">
+                <span class="survey-form__emoji">👑</span>
+                <h2 class="survey-form__question-text">Твой персонаж</h2>
+              </div>
+
+              <div class="survey-form__character">
+                <div class="survey-form__character-options">
+                  <div class="survey-form__character-option">
+                    <input
+                      type="radio"
+                      id="character-male"
+                      name="character"
+                      value="male"
+                      class="survey-form__character-input"
+                      checked
+                    />
+                    <label
+                      for="character-male"
+                      class="survey-form__character-label"
+                    >
+                      <span class="survey-form__character-icon">🦸‍♂️</span>
+                      <span class="survey-form__character-name">Воин</span>
+                    </label>
+                  </div>
+
+                  <div class="survey-form__character-option">
+                    <input
+                      type="radio"
+                      id="character-female"
+                      name="character"
+                      value="female"
+                      class="survey-form__character-input"
+                    />
+                    <label
+                      for="character-female"
+                      class="survey-form__character-label"
+                    >
+                      <span class="survey-form__character-icon">🦸‍♀️</span>
+                      <span class="survey-form__character-name"
+                        >Воительница</span
+                      >
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="survey-form__question" style="margin-top: 40px">
+                <span class="survey-form__emoji">📜</span>
+                <h2 class="survey-form__question-text">
+                  Твои секретные заметки
+                </h2>
+              </div>
+
+              <div class="survey-form__group">
+                <textarea
+                  id="gamified-comments"
+                  class="survey-form__textarea"
+                  placeholder="Оставь свои мысли, пожелания или заклинания..."
+                  rows="4"
+                  name="comments"
+                ></textarea>
+                <label for="gamified-comments" class="survey-form__label"
+                  >Магические записи</label
+                >
+              </div>
+
+              <div class="survey-form__nav">
+                <button type="button" class="survey-form__prev">← Назад</button>
+                <button type="button" class="survey-form__next">Далее →</button>
+              </div>
+            </div>
+
+            <div class="survey-form__section" data-survey-form-section>
+              <div class="survey-form__question">
+                <span class="survey-form__emoji">🏆</span>
+                <h2 class="survey-form__question-text">Готово!</h2>
+                <p class="survey-form__congrats">
+                  Ты прошёл квест! Нажми "Отправить" для получения награды.
+                </p>
+              </div>
+              <div class="survey-form__nav">
+                <button type="button" class="survey-form__prev">← Назад</button>
+                <button type="submit" class="survey-form__submit">
+                  Отправить 🚀
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Popup -->
+          <div class="results-popup" hidden data-results-popup>
+            <div class="results-popup__content" data-results-popup-content>
+              <button
+                class="results-popup__close"
+                aria-label="Закрыть"
+                data-results-popup-close
+              >
+                ×
+              </button>
+
+              <div class="results-popup__header">
+                <h2 class="results-popup__title">🎉 Твой игровой профиль!</h2>
+                <p class="results-popup__subtitle">
+                  Ты успешно завершил квест!
+                </p>
+              </div>
+
+              <div class="results-popup__grid">
+                <div class="results-popup__item">
+                  <span class="results-popup__emoji">👤</span>
+                  <span class="results-popup__label">Имя героя:</span>
+                  <span data-result-name class="results-popup__value"></span>
+                </div>
+
+                <div class="results-popup__item">
+                  <span class="results-popup__emoji">😊</span>
+                  <span class="results-popup__label">Пол:</span>
+                  <span
+                    data-result-character
+                    class="results-popup__value"
+                  ></span>
+                </div>
+
+                <div class="results-popup__item">
+                  <span class="results-popup__emoji">📧</span>
+                  <span class="results-popup__label">Волшебный email:</span>
+                  <span data-result-email class="results-popup__value"></span>
+                </div>
+
+                <div class="results-popup__item">
+                  <span class="results-popup__emoji">⚡</span>
+                  <span class="results-popup__label">Уровень силы:</span>
+                  <span data-result-level class="results-popup__value"></span
+                  >/10
+                </div>
+
+                <div class="results-popup__item">
+                  <span class="results-popup__emoji">🎮</span>
+                  <span class="results-popup__label">Навыки:</span>
+                  <span data-result-skills class="results-popup__value"></span>
+                </div>
+
+                <div class="results-popup__item">
+                  <span class="results-popup__emoji">💡</span>
+                  <span class="results-popup__label">Комментарии:</span>
+                  <span
+                    data-result-comments
+                    class="results-popup__value"
+                  ></span>
+                </div>
+              </div>
+
+              <button class="results-popup__button share-btn">
+                Поделиться результатом 🚀
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./src/pages/survey-form/index.js" type="module"></script>
+  </body>
+</html>
+
+<!-- 
+*Общий принцип работы:
+Форма работает как многошаговый квест, где каждый шаг — это отдельный "уровень" (секция формы). Пользователь последовательно заполняет данные, продвигаясь вперед или возвращаясь назад.
+
+*. Навигация между шагами
+Изначально виден только первый шаг (ввод имени)
+При нажатии "Далее →":
+Проверяется валидность текущего шага
+Если всё верно — текущий шаг скрывается, следующий показывается с анимацией
+Прогресс-бар обновляется
+При нажатии "← Назад":
+Возврат к предыдущему шагу без проверок
+Прогресс-бар корректируется
+
+*2. Валидация полей
+*Поле имени:
+Не должно быть пустым
+Минимум 2 символа
+
+*Email:
+Проверка на стандартный формат (xxx@yyy.zz)
+Не пустое
+
+*Остальные шаги:
+Ползунок оценки — всегда валиден (есть значение по умолчанию)
+Чекбоксы навыков — можно не выбирать (опционально)
+Радиокнопки персонажа — всегда валидны (есть выбор по умолчанию)
+Комментарии — опциональны
+
+*3. Логика кнопок
+Кнопка "Далее":
+На первых двух шагах (имя, email) — активна только при правильном заполнении
+На остальных шагах — всегда активна
+Кнопка "Назад":
+Всегда активна, кроме первого шага
+Кнопка "Отправить":
+Появляется только на последнем шаге
+Активна всегда (так как обязательные поля уже проверены)
+
+*4. Визуальная обратная связь
+Невалидные поля:
+Красная подсветка поля
+Текст ошибки под полем
+Кнопка "Далее" неактивна
+
+*Прогресс-бар:
+Заполняется пропорционально пройденным шагам
+Процент завершения обновляется
+
+*5. Отправка формы
+Происходит только при нажатии "Отправить" на последнем шаге
+Перед отправкой:
+Проверяется, что все обязательные поля заполнены
+Если всё верно — собираются данные всех полей в объект
+После успешной отправки:
+Можно показать анимацию успеха (например, конфетти)
+Форма закрывается или сбрасывается
+
+*6. Хранение данных
+При переходе между шагами данные не теряются:
+Значения сохраняются в состоянии JS-объекта
+Можно редактировать, возвращаясь назад
+При перезагрузке страницы — форма начинается заново (либо можно добавить сохранение в localStorage)
+-->

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" /> -->
+    <title>JS Sandbox</title>
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <a href="/index.html" class="sidebar__logo"><span>JS</span> Sandbox</a>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="/book-store.html">
+                <span>🛒 Книжный магазин</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/library.html">
+                <span>📚 Домашняя библиотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/portfolio.html" class="sidebar__link">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/survey-form.html" class="sidebar__link">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/delivery-form.html" class="sidebar__link">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link active">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+              <li class="sidebar__item">
+              <a href="/film-archive.html" class="sidebar__link">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+             <li class="sidebar__item">
+              <a href="/network-monitor.html" class="sidebar__link">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+              <li class="sidebar__item">
+              <a href="/warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/promise-loader.html" class="sidebar__link">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item" >
+              <a href="/delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="content cyber-card-app" data-cyber-card-app>
+        <!-- Шапка в стиле Night City -->
+        <header class="cyber-card-app__header">
+          <div class="cyber-card-app__logo-container">
+            <svg
+              class="cyber-card-app__logo"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              aria-hidden="true"
+            >
+              <!-- Логотип в стиле киберпанк -->
+              <path
+                d="M12 12L24 6L36 12V36L24 42L12 36V12Z"
+                fill="none"
+                stroke="#FF2A6D"
+                stroke-width="2"
+              />
+              <path
+                d="M18 18L30 18M18 24L30 24M18 30L30 30"
+                stroke="#00FF9D"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <circle cx="24" cy="24" r="3" fill="#FF2A6D" />
+            </svg>
+            <h1 class="cyber-card-app__title">CYBER<span>CARD</span></h1>
+          </div>
+          <div class="cyber-card-app__subtitle">NEON NETWORK</div>
+        </header>
+
+        <!-- Форма с киберпанк-элементами -->
+        <form
+          class="cyber-card-form"
+          aria-labelledby="cyber-form-title"
+          data-cyber-card-form
+        >
+          <h2 id="cyber-form-title" class="visually-hidden">Настройки карты</h2>
+
+          <div class="cyber-card-form__fields">
+            <!-- Поле имени -->
+            <div class="cyber-card-form__field">
+              <label for="cyber-card-name" class="cyber-card-form__label"
+                >USER ALIAS</label
+              >
+              <div class="cyber-card-form__input-wrapper" data-glitch>
+                <input
+                  type="text"
+                  id="cyber-card-name"
+                  class="cyber-card-form__input"
+                  placeholder="JOHNNY_SILVERHAND"
+                  maxlength="20"
+                  value=""
+                  name="cyber-card-name"
+                  data-cyber-card-name
+                />
+                <div class="cyber-card-form__glitch-layer"></div>
+              </div>
+            </div>
+
+            <!-- Поле номера -->
+            <div class="cyber-card-form__field">
+              <label for="cyber-card-number" class="cyber-card-form__label"
+                >CARD ID</label
+              >
+              <div class="cyber-card-form__input-wrapper" data-glitch>
+                <input
+                  type="tel"
+                  id="cyber-card-number"
+                  class="cyber-card-form__input"
+                  placeholder="####-####-####"
+                  maxlength="16"
+                  name="cyber-card-number"
+                  value=""
+                  data-cyber-card-number
+                />
+                <div class="cyber-card-form__glitch-layer"></div>
+              </div>
+            </div>
+
+            <!-- Поле корпорации -->
+            <div class="cyber-card-form__field">
+              <label for="cyber-card-corp" class="cyber-card-form__label"
+                >CORP</label
+              >
+              <div class="cyber-card-form__select-wrapper" data-glitch>
+                <select
+                  id="cyber-card-corp"
+                  class="cyber-card-form__select"
+                  data-cyber-card-corp
+                >
+                  <option value="arasaka">ARASAKA</option>
+                  <option value="militech">MILITECH</option>
+                  <option value="kangtao">KANG TAO</option>
+                </select>
+                <div class="cyber-card-form__glitch-layer"></div>
+              </div>
+            </div>
+
+            <!-- Поле цвета -->
+            <div class="cyber-card-form__field">
+              <label for="cyber-card-color" class="cyber-card-form__label"
+                >CORP</label
+              >
+              <div class="cyber-card-form__select-wrapper" data-glitch>
+                <select
+                  id="cyber-card-color"
+                  class="cyber-card-form__select"
+                  data-cyber-card-color
+                >
+                  <option value="#7e2c2c">Hot Pink</option>
+                  <option value="#672c7e">Acid Green</option>
+                  <option value="#2c417e">Electric Blue</option>
+                  <option value="#2c747e">Neon Purple</option>
+                  <option value="#2c7e35">Cyber Yellow</option>
+                </select>
+                <div class="cyber-card-form__glitch-layer"></div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- Превью карты с цифровым шумом -->
+        <div class="cyber-card-preview">
+          <div
+            class="cyber-card-preview__card"
+            id="cyber-visual-card"
+            data-cyber-visual-card
+          >
+            <div
+              class="cyber-card-preview__corp"
+              id="cyber-visual-corp"
+              data-cyber-visual-corp
+            >
+              ARASAKA
+            </div>
+            <div
+              class="cyber-card-preview__name"
+              id="cyber-visual-name"
+              data-cyber-visual-name
+            >
+              JOHNNY_SILVERHAND
+            </div>
+            <div
+              class="cyber-card-preview__number"
+              id="cyber-visual-number"
+              data-cyber-visual-number
+            >
+              ####-####-####
+            </div>
+            <div class="cyber-card-preview__qr" id="cyber-visual-qr">
+              <div
+                class="cyber-card-preview__qr-code"
+                data-corp="arasaka"
+                data-cyber-card-qr-code
+              ></div>
+              <div
+                class="cyber-card-preview__qr-scanline"
+                data-cyber-card-qr-scanline
+              ></div>
+            </div>
+            <div class="cyber-card-preview__noise"></div>
+            <div class="cyber-card-preview__glitch-overlay"></div>
+          </div>
+        </div>
+
+        <!-- Аудио для эффектов -->
+        <audio
+          id="cyber-sound"
+          src="https://assets.mixkit.co/sfx/preview/mixkit-digital-ui-interface-tone-2571.mp3"
+        ></audio>
+      </main>
+    </div>
+    <script src="./src/pages/card-crafter/index.js" type="module"></script>
+  </body>
+</html>

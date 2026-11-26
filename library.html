@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" />-->
+    <title>Домашняя библиотека | JS Sandbox</title>
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <a href="/index.html" class="sidebar__logo"><span>JS</span> Sandbox</a>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="/book-store.html">🛒 Книжный магазин</a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="active">📖 Домашняя библиотека </a>
+            </li>
+            <li class="sidebar__item sidebar__item--active">
+              <a href="/portfolio.html" class="sidebar__link">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/survey-form.html" class="sidebar__link">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/delivery-form.html" class="sidebar__link">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/card-crafter.html" class="sidebar__link">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/film-archive.html" class="sidebar__link">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/network-monitor.html" class="sidebar__link">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/promise-loader.html" class="sidebar__link">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item" >
+              <a href="/delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="content content--library">
+        <section class="library" aria-labelledby="library-title">
+          <div class="library__header">
+            <h1 id="library-title" class="library__title">
+              📖 Домашняя библиотека
+            </h1>
+            <button
+              class="library__add-btn"
+              aria-label="Добавить книгу"
+              data-add-book
+            >
+              <!-- Иконка "+" как SVG -->
+              <svg
+                class="icon icon--plus"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path fill="white" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Контейнер для книг -->
+          <div class="library__content" data-library-content>
+            <div class="library__stats" data-library-stats>
+              <p class="library__stats-item">
+                Всего книг: <span data-books-count>0</span>
+              </p>
+              <p class="library__stats-item">
+                Прочитано: <span data-books-read>0</span>
+              </p>
+            </div>
+
+            <ul class="books-grid" data-books-list aria-live="polite">
+              <!-- Книги будут добавляться сюда через JS -->
+
+              <li class="library-book" tabindex="0" data-library-book="1">
+                <article
+                  class="library-book__content"
+                  itemscope=""
+                  itemtype="https://schema.org/Book"
+                >
+                  <div class="library-book__media">
+                    <!-- Декоративная закладка -->
+                    <svg
+                      class="library-book__bookmark"
+                      width="24"
+                      height="56"
+                      viewBox="0 0 24 56"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 0H16C20.4183 0 24 3.58172 24 8V56L12 48L0 56V0Z"
+                        fill="#E91E63"
+                      />
+                      <path
+                        d="M6 16H18"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+
+                    <img
+                      src="/src/pages/book-store/images/book-6.jpg"
+                      alt="Обложка книги 'Гарри Поттер'"
+                      class="library-book__image"
+                      width="160"
+                      height="240"
+                      loading="lazy"
+                      itemprop="image"
+                      data-library-book-img
+                    />
+
+                    <div class="library-book__overlay">
+                      <button
+                        class="library-book__quick-view"
+                        aria-label="Быстрый просмотр книги"
+                        data-library-action="quick-view"
+                      >
+                        <svg
+                          class="library-book__quick-icon"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+                            fill="currentColor"
+                          ></path>
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3ZM19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- Кнопка удаления -->
+                    <button
+                      class="library-book__delete"
+                      aria-label="Удалить книгу из библиотеки"
+                      data-library-action="delete"
+                    >
+                      <svg
+                        class="library-book__delete-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19 7L18.1327 19.1425C18.0579 20.1891 17.187 21 16.1378 21H7.86224C6.81296 21 5.94208 20.1891 5.86732 19.1425L5 7M10 11V17M14 11V17M15 7V4C15 3.44772 14.5523 3 14 3H10C9.44772 3 9 3.44772 9 4V7M4 7H20"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div class="library-book__info">
+                    <h3
+                      class="library-book__title"
+                      itemprop="name"
+                      data-library-book-title
+                    >
+                      Гарри Поттер
+                    </h3>
+                    <p
+                      class="library-book__author"
+                      itemprop="author"
+                      data-library-book-author
+                    >
+                      Джоан Роулинг
+                    </p>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Модальное окно -->
+          <div class="modal-library" id="book-modal" data-book-modal>
+            <div class="modal-library__overlay" tabindex="-1">
+              <div
+                class="modal-library__content modal--forest"
+                role="dialog"
+                aria-labelledby="modal-title"
+                data-modal-library-content
+              >
+                <button
+                  class="modal-library__close-btn"
+                  aria-label="Закрыть окно"
+                  data-modal-close
+                >
+                  &times;
+                </button>
+                <div class="modal-library__header">
+                  <h2 id="modal-title" class="modal-library__title">
+                    Добавить новую книгу
+                  </h2>
+                  <div class="modal-library__icon">📖</div>
+                </div>
+                <form class="book-form" id="book-form" data-book-form>
+                  <div class="book-form__group">
+                    <label for="book-title" class="book-form__label"
+                      >Название*</label
+                    >
+                    <input
+                      type="text"
+                      id="book-title"
+                      class="book-form__input"
+                      required
+                      placeholder="Например, «Гарри Поттер»"
+                    />
+                  </div>
+                  <div class="book-form__group">
+                    <label for="book-author" class="book-form__label"
+                      >Автор</label
+                    >
+                    <input
+                      type="text"
+                      id="book-author"
+                      class="book-form__input"
+                      placeholder="Джоан Роулинг"
+                    />
+                  </div>
+                  <button type="submit" class="book-form__submit">
+                    Добавить
+                  </button>
+                </form>
+                <div class="modal-library__nature-bg"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <template id="library-book">
+      <li class="library-book" data-library-book>
+        <article
+          class="library-book__content"
+          itemscope=""
+          itemtype="https://schema.org/Book"
+        >
+          <div class="library-book__media">
+            <!-- Декоративная закладка -->
+            <svg
+              class="library-book__bookmark"
+              width="24"
+              height="56"
+              viewBox="0 0 24 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0H16C20.4183 0 24 3.58172 24 8V56L12 48L0 56V0Z"
+                fill="#E91E63"
+              />
+              <path
+                d="M6 16H18"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            <img
+              src="/src/pages/book-store/images/book-3.jpg"
+              alt="Обложка книги 'Гарри Поттер'"
+              class="library-book__image"
+              width="160"
+              height="240"
+              loading="lazy"
+              itemprop="image"
+              data-library-book-img
+            />
+
+            <div class="library-book__overlay">
+              <button
+                class="library-book__quick-view"
+                aria-label="Быстрый просмотр книги"
+                data-library-action="quick-view"
+              >
+                <svg
+                  class="library-book__quick-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+                    fill="currentColor"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3ZM19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Кнопка удаления -->
+            <button
+              class="library-book__delete"
+              aria-label="Удалить книгу из библиотеки"
+              data-library-action="delete"
+            >
+              <svg
+                class="library-book__delete-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 7L18.1327 19.1425C18.0579 20.1891 17.187 21 16.1378 21H7.86224C6.81296 21 5.94208 20.1891 5.86732 19.1425L5 7M10 11V17M14 11V17M15 7V4C15 3.44772 14.5523 3 14 3H10C9.44772 3 9 3.44772 9 4V7M4 7H20"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="library-book__info">
+            <h3
+              class="library-book__title"
+              itemprop="name"
+              data-library-book-title
+            >
+              Гарри Поттер
+            </h3>
+            <p
+              class="library-book__author"
+              itemprop="author"
+              data-library-book-author
+            >
+              Джоан Роулинг
+            </p>
+          </div>
+        </article>
+      </li>
+    </template>
+    <script src="./src/pages/book-library/index.js" type="module"></script>
+  </body>
+</html>

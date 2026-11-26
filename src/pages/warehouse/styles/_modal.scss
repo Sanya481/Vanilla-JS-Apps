@@ -1,0 +1,152 @@
+@use './variables' as *;
+
+// Переменные для модалки
+$modal-backdrop: rgba(0, 0, 0, 0.5);
+$modal-bg: #ffffff;
+$danger-color: #dc3545;
+
+// Модальное окно
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $modal-backdrop;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+
+  // Анимация появления
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.modal {
+  background: $modal-bg;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  animation: slideInUp 0.4s ease-out;
+
+  // Анимация появления модалки
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+.modal__header {
+  text-align: center;
+  margin-bottom: 20px;
+
+  .modal__title {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.modal__body {
+  margin-bottom: 30px;
+
+  .modal__message {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.modal__footer {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+
+  .btn {
+    min-width: 120px;
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+// Опасная кнопка (удалить)
+.btn--danger {
+  background: linear-gradient(135deg, $danger-color, #c82333);
+  color: $white;
+
+  &::after {
+    content: ' 🧹';
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #c82333, #bd2130);
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+  }
+}
+
+.btn.modal__cancel {
+  &::after {
+    content: ' ⛔';
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .modal {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .modal__footer {
+    flex-direction: column;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+.modal-overlay.closing {
+  animation: fadeOut 0.3s ease-in;
+
+  .modal {
+    animation: slideOutDown 0.3s ease-in;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideOutDown {
+    from {
+      transform: translateY(0) scale(1);
+    }
+    to {
+      transform: translateY(50px) scale(0.9);
+    }
+  }
+}

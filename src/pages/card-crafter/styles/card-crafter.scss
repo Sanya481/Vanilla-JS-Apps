@@ -1,0 +1,712 @@
+.cyber-card-app {
+  padding: 2rem;  
+  background-color: #000;
+  color: #00ff9d;
+  font-family: 'Rajdhani', sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #000 0%, #ff2a6d20 50%, #000 100%),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23FF2A6D10" stroke-width="0.5"/></svg>');
+    background-size: cover, 50px 50px;
+    z-index: 0;
+  }
+
+  &__header {
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+  }
+
+  &__logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__logo {
+    fill: none;
+    stroke: #ff2a6d;
+    stroke-width: 2;
+    filter: drop-shadow(0 0 5px #ff2a6d);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 10px #ff2a6d);
+    }
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ff2a6d;
+    text-shadow: 0 0 10px #ff2a6d80;
+    font-weight: 700;
+
+    span {
+      color: #00ff9d;
+    }
+  }
+
+  &__subtitle {
+    font-size: 0.9rem;
+    color: #00ff9d;
+    letter-spacing: 5px;
+    text-align: right;
+    margin-right: 1rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 70%;
+      height: 1px;
+      background: linear-gradient(90deg, #ff2a6d00, #ff2a6d);
+    }
+  }
+}
+
+.cyber-card-form {
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+
+  &__fields {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  &__field {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #ff2a6d;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &__input-wrapper,
+  &__select-wrapper,
+  &__color-picker {
+    position: relative;
+    background: #111;
+    border: 1px solid #ff2a6d;
+    box-shadow: 0 0 10px #ff2a6d40;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: 0 0 15px #ff2a6d80;
+      border-radius: 8px;
+
+      .cyber-card-form__glitch-layer {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    padding: 0.8rem;
+    background: #000;
+    border: none;
+    color: #00ff9d;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+    outline: none;
+
+    &::placeholder {
+      color: #00ff9d60;
+    }
+  }
+
+  &__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23FF2A6D' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+  }
+
+  &__glitch-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      0deg,
+      transparent 48%,
+      #00ff9d 49%,
+      #00ff9d 51%,
+      transparent 52%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &__color-picker {
+    position: relative;
+    height: 48px;
+    background: #111;
+    border: 1px solid #ff2a6d;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+
+    &:hover {
+      box-shadow: 0 0 15px rgba(255, 42, 109, 0.7);
+      border-radius: 8px;
+    }
+
+    input[type='color'] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    &::after {
+      content: '▼';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ff2a6d;
+      font-size: 12px;
+      z-index: 1;
+    }
+  }
+
+  &__color-label {
+    color: #00ff9d;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Альтернативный вариант - выбор из списка */
+  &__color-select {
+    width: 100%;
+    padding: 0.8rem;
+    background: #111;
+    border: 1px solid #ff2a6d;
+    border-radius: 12px;
+    color: #00ff9d;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 15px rgba(255, 42, 109, 0.7);
+      border-radius: 8px;
+    }
+
+    option {
+      background: #000;
+      color: #00ff9d;
+      padding: 10px;
+    }
+  }
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.color-option {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px currentColor;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px currentColor;
+  }
+
+  &.active {
+    border-color: #fff;
+    box-shadow: 0 0 15px currentColor;
+  }
+}
+
+.cyber-card-preview {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+  &__card {
+    width: 470px;
+    height: 280px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #111;
+    border: 2px solid #ff2a6d;
+    box-shadow: 0 0 20px #ff2a6d80;
+    transition: all 0.5s ease;
+    border-radius: 15px;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px #ff2a6d;
+
+      .cyber-card-preview__glitch-overlay {
+        opacity: 0.4;
+      }
+
+      .cyber-card-preview__qr-scanline {
+        animation: scanline 2s linear infinite;
+      }
+    }
+  }
+
+  &__corp {
+    font-size: 1rem;
+    color: #ff2a6d;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__name {
+    font-size: 1.4rem;
+    color: #00ff9d;
+    letter-spacing: 2px;
+    margin: 1rem 0;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 5px #00ff9d80;
+  }
+
+  &__number {
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 3px;
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__qr {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 80px;
+    height: 80px;
+    background: #000;
+    border: 1px solid #00ff9d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+  &__qr-code {
+    width: 70%;
+    height: 70%;
+    background: linear-gradient(
+      45deg,
+      #000 25%,
+      #00ff9d 25%,
+      #00ff9d 50%,
+      #000 50%,
+      #000 75%,
+      #00ff9d 75%
+    );
+    background-size: 10px 10px;
+    position: relative;
+  }
+
+  &__qr-scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ff2a6d;
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+
+  &__noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &__glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        0deg,
+        #ff2a6d10 0%,
+        transparent 5%,
+        transparent 95%,
+        #00ff9d10 100%
+      ),
+      linear-gradient(
+        90deg,
+        #ff2a6d10 0%,
+        transparent 5%,
+        transparent 95%,
+        #00ff9d10 100%
+      );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.cyber-card-form {
+  &__input {
+    // Базовый стиль
+    transition: all 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+
+    // Состояние focus
+    &:focus {
+      box-shadow: 0 0 0 2px #ff2a6d, 0 0 15px #ff2a6d80;
+      background-color: #111;
+      transform: translateY(-2px);
+
+      + .cyber-card-form__glitch-layer {
+        opacity: 0.5;
+        animation: glitch 0.5s infinite alternate;
+      }
+    }
+
+    // Состояние blur (возврат к нормальному)
+    &:blur {
+      box-shadow: 0 0 10px #ff2a6d40;
+    }
+
+    // Состояние при вводе (valid)
+    &:not(:placeholder-shown) {
+      border-color: #00ff9d;
+
+      + .cyber-card-form__glitch-layer {
+        background: linear-gradient(
+          0deg,
+          transparent 48%,
+          #00ff9d 49%,
+          #00ff9d 51%,
+          transparent 52%
+        );
+      }
+    }
+
+    // Ошибка валидации
+    &.error {
+      border-color: #ff0000;
+      box-shadow: 0 0 10px #ff000080;
+
+      + .cyber-card-form__glitch-layer {
+        background: linear-gradient(
+          0deg,
+          transparent 48%,
+          #ff0000 49%,
+          #ff0000 51%,
+          transparent 52%
+        );
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__select {
+    // Аналогичные стили для select
+    &:focus {
+      box-shadow: 0 0 0 2px #05d9fe, 0 0 15px #05d9fe80;
+      background-color: #111;
+    }
+  }
+}
+
+// Для динамически добавляемых классов
+.cyber-input {
+  &--focused {
+    box-shadow: 0 0 0 2px #ff2a6d, 0 0 20px #ff2a6d, inset 0 0 10px #ff2a6d40;
+    animation: glitch-pulse 1.5s infinite;
+  }
+
+  &--valid {
+    border-color: #00ff9d !important;
+
+    + .cyber-card-form__glitch-layer {
+      background: linear-gradient(
+        0deg,
+        transparent 48%,
+        #00ff9d 49%,
+        #00ff9d 51%,
+        transparent 52%
+      );
+    }
+  }
+
+  &--error {
+    border-color: #ff0000 !important;
+    animation: glitch 0.3s infinite alternate;
+
+    + .cyber-card-form__glitch-layer {
+      background: linear-gradient(
+        0deg,
+        transparent 48%,
+        #ff0000 49%,
+        #ff0000 51%,
+        transparent 52%
+      );
+      opacity: 0.7;
+    }
+  }
+
+  &--typing {
+    transform: scale(1.01);
+    box-shadow: 0 0 15px #00ff9d80;
+  }
+}
+
+.cyber-card-preview {
+  &__card {
+    // При активном вводе
+    &.active-input {
+      border-color: #00ff9d;
+      box-shadow: 0 0 30px #00ff9d80;
+
+      .cyber-card-preview__noise {
+        opacity: 0.3;
+      }
+    }
+
+    // При ошибке
+    &.error-state {
+      border-color: #ff0000;
+      animation: glitch 0.5s infinite alternate;
+
+      .cyber-card-preview__glitch-overlay {
+        opacity: 0.7;
+        background: linear-gradient(
+          0deg,
+          #ff000020 0%,
+          transparent 50%,
+          #ff000020 100%
+        );
+      }
+    }
+  }
+}
+
+.cyber-card-form__select {
+  &:focus {
+    box-shadow: 0 0 0 2px #05d9fe, 0 0 15px #05d9fe80;
+    background-color: #111;
+
+    + .cyber-card-form__glitch-layer {
+      opacity: 0.5;
+      animation: glitch 0.5s infinite alternate;
+      background: linear-gradient(
+        0deg,
+        transparent 48%,
+        #05d9fe 49%,
+        #05d9fe 51%,
+        transparent 52%
+      );
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 0 15px #05d9fe80;
+  }
+}
+
+.cyber-card-form__select {
+  transition: all 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+/* Новый стиль для Militech */
+.cyber-card-preview__qr-code[data-corp='militech'] {
+  background: repeating-linear-gradient(
+    45deg,
+    #05d9fe,
+    #05d9fe 5px,
+    #000 5px,
+    #000 10px
+  );
+}
+
+/* Новый стиль для Kang Tao */
+.cyber-card-preview__qr-code[data-corp='kangtao'] {
+  background: radial-gradient(circle, #ff00ff 0%, #000 50%, #ff00ff 100%);
+}
+
+/* Анимация сканера */
+.cyber-card-preview__qr-scanline {
+  animation: scanline 2s linear infinite;
+  height: 2px;
+  background: currentColor;
+}
+
+// Анимации
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+// В CSS:
+@keyframes arasaka-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0.8;
+  }
+}
+
+@keyframes militech-scan {
+  0% {
+    transform: translateY(-100%) skewX(45deg);
+  }
+  100% {
+    transform: translateY(100%) skewX(45deg);
+  }
+}
+
+@keyframes kangtao-scan {
+  0% {
+    transform: translateY(-100%) scaleX(0.5);
+  }
+  50% {
+    transform: translateY(0) scaleX(1.5);
+  }
+  100% {
+    transform: translateY(100%) scaleX(0.5);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0 100%);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0 100%);
+  }
+  60% {
+    transform: translate(2px, 2px);
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    clip-path: polygon(0 80%, 100% 80%, 100% 100%, 0 100%);
+  }
+  100% {
+    transform: translate(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes glitch-flicker {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    opacity: 0.5;
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes glitch-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Подключение шрифтов
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700&display=swap');

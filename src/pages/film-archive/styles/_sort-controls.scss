@@ -1,0 +1,173 @@
+@use './variables' as *;
+
+.sort-section {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(233, 69, 96, 0.05);
+
+  &__title {
+    margin: 0 0 1rem 0;
+    color: #2d3748;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.sort-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  flex-wrap: wrap;
+
+  &__btn {
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    // Эффект при наведении
+    &:hover {
+      border-color: #e94560;
+      color: #e94560;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(233, 69, 96, 0.15);
+
+      &::before {
+        transform: translateX(0);
+      }
+    }
+
+    // Эффект при нажатии
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(233, 69, 96, 0.1);
+    }
+
+    // Подсветка при фокусе (для доступности)
+    &:focus {
+      outline: none;
+      border-color: #e94560;
+      box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+    }
+
+    // Анимационная полоска снизу
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #e94560;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  // Специальный стиль для кнопки сброса
+  &__btn--reset {
+    border-color: #6c757d;
+    color: #6c757d;
+
+    &:hover {
+      border-color: #495057;
+      color: #495057;
+      box-shadow: 0 4px 12px rgba(108, 117, 125, 0.15);
+
+      &::before {
+        background: #495057;
+      }
+    }
+
+    &:focus {
+      border-color: #495057;
+      box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.2);
+    }
+
+    &::before {
+      background: #6c757d;
+    }
+  }
+}
+
+// Темная тема
+[data-theme='dark'] {
+  .sort-controls {
+    &__btn {
+      background: #2d3748;
+      border-color: #4a5568;
+      color: #e2e8f0;
+
+      &:hover {
+        border-color: #e94560;
+        color: #e94560;
+        box-shadow: 0 4px 12px rgba(233, 69, 96, 0.2);
+      }
+
+      &:focus {
+        border-color: #e94560;
+        box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.3);
+      }
+    }
+
+    &__btn--reset {
+      border-color: #718096;
+      color: #a0aec0;
+
+      &:hover {
+        border-color: #e2e8f0;
+        color: #e2e8f0;
+        box-shadow: 0 4px 12px rgba(160, 174, 192, 0.2);
+
+        &::before {
+          background: #e2e8f0;
+        }
+      }
+
+      &:focus {
+        border-color: #e2e8f0;
+        box-shadow: 0 0 0 3px rgba(160, 174, 192, 0.3);
+      }
+
+      &::before {
+        background: #718096;
+      }
+    }
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .sort-controls {
+    gap: 8px;
+
+    &__btn {
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .sort-controls {
+    flex-direction: column;
+    width: 100%;
+
+    &__btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,271 @@
+@use '../utils/variables' as *;
+
+/* Базовые стили */
+
+$primary: #4a6fa5;
+$secondary: #166088;
+$accent: #4fc3f7;
+$light: #f8f9fa;
+$dark: #212529;
+$success: #28a745;
+$warning: #ffc107;
+$danger: #dc3545;
+$info: #17a2b8;
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--dark);
+  transition: all 0.3s ease;
+}
+
+.sandbox {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Базовые цвета */
+$primary: #4a6fa5;
+$secondary: #5a7bb5;
+$accent: #4fc3f7;
+$light: #f8f9fa;
+$dark: #212529;
+$success: #28a745;
+$warning: #ffc107;
+$info: #17a2b8;
+
+/* Основные стили */
+.content {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+  padding: 1rem;
+  min-height: 100vh;
+  background: #f5f7fa;
+
+  &.content--portfolio,
+  &.content--library {
+    padding: 0;
+  }
+
+  &.content--survey {
+    // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    // background-size: 400% 400%;
+    // animation: gradientBG 15s ease infinite;
+    // min-height: 100vh;
+
+    background: #121212;
+    background-image: linear-gradient(
+        rgba(108, 92, 231, 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(108, 92, 231, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: gridMove 5s linear infinite;
+  }
+
+  &.content--delivery {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+@keyframes rain {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 20px;
+  }
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 40px;
+  }
+}
+
+@keyframes bubbles {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.portfolio {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 15px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: $primary;
+    border-radius: 2px;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+.project-card {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-top: 4px solid $primary;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .card-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 60px 60px 0;
+    border-color: transparent rgba(0, 0, 0, 0.05) transparent transparent;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin: 0 0 15px;
+    color: #2c3e50;
+  }
+
+  p {
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #ecf0f1;
+  }
+}
+
+/* Статусы карточек */
+.completed {
+  border-top-color: $success;
+
+  .status-badge {
+    background: #e8f5e9;
+    color: $success;
+  }
+}
+
+.in-progress {
+  border-top-color: $warning;
+
+  .status-badge {
+    background: #fff8e1;
+    color: #ff8f00;
+  }
+}
+
+.planned {
+  border-top-color: $info;
+
+  .status-badge {
+    background: #e1f5fe;
+    color: $info;
+  }
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.project-link {
+  color: $primary;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+
+  &:hover {
+    color: rgb(52 86 137);
+    text-decoration: underline;
+  }
+
+  &.disabled {
+    color: #95a5a6;
+    cursor: default;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

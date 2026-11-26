@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" /> -->    
+    <title>JS Sandbox</title>
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <a href="/index.html" class="sidebar__logo"><span>JS</span> Sandbox</a>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="/book-store.html" class="sidebar__link">
+                <span>🛒 Книжный магазин</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/library.html" class="sidebar__link">
+                <span>📚 Домашняя библиотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/portfolio.html" class="sidebar__link">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/survey-form.html" class="sidebar__link">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/delivery-form.html" class="sidebar__link active">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/card-crafter.html" class="sidebar__link">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+              <li class="sidebar__item">
+              <a href="/film-archive.html" class="sidebar__link">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+             <li class="sidebar__item">
+              <a href="/network-monitor.html" class="sidebar__link">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+              <li class="sidebar__item">
+              <a href="/warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/promise-loader.html" class="sidebar__link">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item" >
+              <a href="/delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="content content--delivery">
+        <div class="eco-background">
+          <div class="leaf-pattern"></div>
+          <div class="bike-animation">
+            <div class="bike">🚲</div>
+            <div class="bike-shadow"></div>
+          </div>
+          <div class="floating-leaves">
+            <span>🍃</span>
+            <span>🌿</span>
+            <span>🍂</span>
+          </div>
+        </div>
+
+        <section class="eco-delivery">
+          <div class="eco-header">
+            <h1 class="eco-title">
+              <span class="eco-main-title">Зеленая Доставка 🌿</span>
+              <span class="eco-subtitle"
+                >Экологично ♻️ Быстро 😊 На велосипедах 🚴</span
+              >
+            </h1>
+            <div class="eco-badge">
+              <span class="eco-icon">🌎</span>
+              <span>CO<sub>2</sub> Neutral</span>
+            </div>
+          </div>
+
+          <div class="eco-calculator-container">
+            <div class="eco-form-wrapper">
+              <form
+                class="eco-delivery-form"
+                id="deliveryForm"
+                method="POST"
+                data-delivery-form
+              >
+                <div class="eco-form-group eco-form-group--name">
+                  <label for="itemName">Что доставляем?</label>
+                  <div class="eco-input-wrapper">
+                    <input                      
+                      id="itemName"
+                      name="itemName"
+                      placeholder="Например: Органический кофе"
+                    />
+                    <span class="eco-input-icon">📦</span>
+                  </div>
+                  <div class="eco-input-hint visually-hidden"></div>
+                </div>
+
+                <div class="eco-form-group eco-form-group--weight">
+                  <label for="itemWeight">Вес (кг)</label>
+                  <div class="eco-input-wrapper">
+                    <input                      
+                      id="itemWeight"
+                      name="itemWeight"
+                      placeholder="0.1"
+                    />
+                    <span class="eco-input-icon">⚖️</span>
+                  </div>
+                  <div class="eco-input-hint">До 20 кг на 1 курьера</div>
+                </div>
+
+                <div class="eco-form-group eco-form-group--distance">
+                  <label for="itemDistance">Расстояние (км)</label>
+                  <div class="eco-input-wrapper">
+                    <input                      
+                      id="itemDistance"
+                      name="itemDistance"
+                      placeholder="5"
+                    />
+                    <span class="eco-input-icon">📍</span>
+                  </div>
+                  <div class="eco-input-hint">До 15 км в пределах города</div>
+                </div>
+
+                <button type="submit" class="eco-submit-btn">
+                  <span>Рассчитать доставку</span>
+                  <span class="eco-btn-icon">🚴‍♀️</span>
+                </button>
+              </form>
+
+              <div class="eco-stats">
+                <div class="eco-stat-item">
+                  <div class="eco-stat-value" id="carbonSaved">0</div>
+                  <div class="eco-stat-label">
+                    грамм CO<sub>2</sub> сэкономлено
+                  </div>
+                </div>
+                <div class="eco-stat-item">
+                  <div class="eco-stat-value" id="treesSaved">0</div>
+                  <div class="eco-stat-label">
+                    эквивалент спасенных деревьев
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="eco-delivery-list">
+              <div class="eco-list-header">
+                <div class="eco-list-header__top">
+                  <h2 class="eco-list-header__title">Ваши отправления</h2>
+                  <button
+                    type="button"
+                    class="eco-list-header__clear-btn"
+                    data-clear-cart
+                    disabled
+                  >
+                    <span class="eco-list-header__clear-icon">🗑️</span>
+                    Очистить
+                  </button>
+                </div>
+
+                <div class="eco-list-summary">
+                  <div
+                    class="eco-total-cost"
+                    id="totalCost"
+                    data-eco-total-cost
+                  >
+                    Итого: 0 ₽
+                  </div>
+                  <div class="eco-rating">
+                    <span>Ваш эко-рейтинг:</span>
+                    <div class="eco-stars">🌱🌱🌱🌱</div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="eco-list-items"
+                id="deliveryItems"
+                data-eco-list-items
+              >
+                <!-- Убрать при добавлении заказа -->
+                <div class="eco-empty-state" data-eco-empty-state>
+                  <div class="eco-empty-icon">📭</div>
+                  <p>Добавьте ваш первый заказ</p>
+                  <p>Мы доставим его на велосипеде!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <template id="delivery-item">
+      <div
+        class="eco-delivery-item eco-delivery-item--express"
+        data-id
+        data-eco-delivery-item
+      >
+        <div class="eco-item-main">
+          <div class="eco-item-icon">🍃</div>
+          <div class="eco-item-info">
+            <div class="eco-item-name" data-eco-item-name>Эко-упаковка</div>
+            <div class="eco-item-meta">
+              <span class="eco-item-weight" data-eco-item-weight>0.8 кг</span>
+              <span class="eco-item-distance" data-eco-item-distance>3 км</span>
+              <span class="eco-item-badge" data-eco-item-badge>Срочно</span>
+            </div>
+          </div>
+        </div>
+        <div class="eco-item-details">
+          <div class="eco-item-cost" data-eco-item-cost>90 ₽</div>
+          <div class="eco-item-carbon">
+            <span class="eco-carbon-icon">🌿</span>
+            <span class="eco-carbon-value">-75г CO₂</span>
+          </div>
+        </div>
+        <button class="eco-item-remove" title="Удалить" data-eco-item-remove>
+          <span>🗑️</span>
+        </button>
+      </div>
+    </template>
+
+    <script src="./src/pages/delivery/index.js" type="module"></script>
+  </body>
+</html>

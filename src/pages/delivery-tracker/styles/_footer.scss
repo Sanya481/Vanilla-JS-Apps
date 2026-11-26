@@ -1,0 +1,201 @@
+.delivery-tracker_footer {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  .total-distance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-lg);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    // Кнопка расчета
+    &__btn {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: var(--primary-gradient);
+      border: none;
+      color: white;
+      padding: 18px 36px;
+      border-radius: 16px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+
+      &:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+
+        .total-distance__btn-icon {
+          transform: translateX(5px);
+        }
+      }
+
+      &:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      &-text {
+        letter-spacing: 0.5px;
+      }
+
+      &-icon {
+        font-size: 1.4rem;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    // Блок с результатом
+    &__result {
+      text-align: center;
+      padding: 10px;
+      background: var(--card-bg);
+      border-radius: 18px;
+      width: 100%;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 18px;
+        padding: 2px;
+        background: var(--secondary-gradient);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+    }
+
+    &__label {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    &__value {
+      font-size: 3.5rem;
+      font-weight: 900;
+      background: var(--success-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 15px;
+      text-shadow: 0 5px 15px rgba(79, 172, 254, 0.2);
+      transition: all 0.5s ease;
+
+      &.updated {
+        animation: pulseGlow 0.8s ease;
+      }
+    }
+
+    &__badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+    }
+  }
+}
+
+// Анимация для обновления значения
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 5px 15px rgba(79, 172, 254, 0.2);
+  }
+  50% {
+    transform: scale(1.1);
+    text-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 5px 15px rgba(79, 172, 254, 0.2);
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .delivery-tracker_footer {
+    margin-top: 40px;
+    padding-top: 30px;
+
+    .total-distance {
+      padding: 20px;
+      gap: 25px;
+
+      &__btn {
+        padding: 16px 28px;
+        font-size: 1.1rem;
+        flex-direction: column;
+        gap: 10px;
+
+        &-icon {
+          font-size: 1.3rem;
+        }
+      }
+
+      &__value {
+        font-size: 2.8rem;
+      }
+
+      &__badge {
+        font-size: 0.9rem;
+        padding: 6px 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .delivery-tracker_footer {
+    .total-distance {
+      padding: 15px;
+
+      &__btn {
+        padding: 14px 24px;
+        font-size: 1rem;
+      }
+
+      &__value {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}

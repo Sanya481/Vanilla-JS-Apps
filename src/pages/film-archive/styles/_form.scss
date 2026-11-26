@@ -1,0 +1,287 @@
+@use './variables' as *;
+
+.content.film-content {
+  font-family: 'Hiragino Sans', 'Noto Sans JP', Arial, sans-serif;
+  background: linear-gradient(135deg, $japanese-beige 0%, #f9f5eb 100%);
+  padding: 30px;
+  color: $japanese-black;
+  min-height: 100vh;
+}
+
+.film-title {
+  margin: 2rem 0;
+  padding: 1rem 0 1.5rem;
+  color: #2c3e50;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+
+  // Добавляем японский иероглиф перед текстом
+  &::before {
+    content: '🎬'; // или используйте иероглиф 映画 (eiga - кино)
+    font-size: 2.5rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+    filter: grayscale(0.3);
+  }
+
+  // Градиентный фон
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(233, 69, 96, 0.2);
+
+  // Тонкая тень
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    border-color: rgba(233, 69, 96, 0.4);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+// Темная тема
+[data-theme='dark'] {
+  .film-title {
+    color: #fff;
+
+    &::after {
+      background: #ff6b81;
+    }
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .film-title {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+
+    &::after {
+      width: 80px;
+      height: 3px;
+    }
+
+    &:hover::after {
+      width: 120px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .film-title {
+    font-size: 1.8rem;
+    padding: 0.8rem 0;
+  }
+}
+
+.film-form {
+  background-color: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+
+  &__group {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fafafa;
+
+    &:focus {
+      outline: none;
+      border-color: #e94560;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+    }
+
+    &:hover {
+      border-color: #b0b0b0;
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+
+  &__checkbox-input {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    accent-color: #e94560;
+    cursor: pointer;
+
+    &:focus {
+      outline: 2px solid #e94560;
+      outline-offset: 2px;
+    }
+  }
+
+  &__checkbox-label {
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+
+    &:hover {
+      color: #e94560;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &--submit {
+      background: #e94560;
+      color: white;
+
+      &:hover {
+        background: #d43a5a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    &--cancel {
+      background: #6c757d;
+      color: white;
+
+      &:hover {
+        background: #5a6268;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.3);
+    }
+  }
+}
+
+// Темная тема
+[data-theme='dark'] {
+  .film-form {
+    background: #2d3748;
+    border-color: #4a5568;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+    &__label {
+      color: #e2e8f0;
+    }
+
+    &__input {
+      background: #4a5568;
+      border-color: #718096;
+      color: #e2e8f0;
+
+      &:focus {
+        border-color: #e94560;
+        background: #2d3748;
+      }
+
+      &:hover {
+        border-color: #a0aec0;
+      }
+
+      &::placeholder {
+        color: #a0aec0;
+      }
+    }
+
+    &__checkbox-label {
+      color: #e2e8f0;
+
+      &:hover {
+        color: #ff6b81;
+      }
+    }
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .film-form {
+    padding: 1.5rem;
+
+    &__footer {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &__btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .film-form {
+    padding: 1rem;
+
+    &__input {
+      padding: 10px 14px;
+    }
+
+    &__btn {
+      padding: 10px 20px;
+    }
+  }
+}
+
+.film-form__footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

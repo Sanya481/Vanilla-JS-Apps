@@ -1,0 +1,232 @@
+.cloudPopup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  opacity: 0;
+  transform: translateX(100px) rotate(5deg);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cloudPopupActive {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg);
+}
+
+.cloudPopupClosing {
+  animation: popupBlowAway 1.2s ease-in-out forwards !important;
+}
+
+.cloudPopup__content {
+  position: relative;
+  animation: cloudFloat 4s ease-in-out infinite;
+}
+
+.cloudPopup__cloud {
+  position: relative;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+}
+
+.cloudPopup__cloud-body {
+  background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
+  border-radius: 30px;
+  padding: 25px;
+  min-width: 280px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+}
+
+.cloudPopup__cloud-tail {
+  position: absolute;
+  bottom: -15px;
+  right: 30px;
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(145deg, #5a67d8 0%, #6b46c1 100%);
+  border-radius: 0 0 20px 20px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
+  z-index: 1;
+}
+
+.cloudPopup__icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+  animation: iconBounce 2s ease-in-out infinite;
+}
+
+.cloudPopup__title {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 12px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.3;
+}
+
+.cloudPopup__text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cloudPopup__button {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(238, 90, 36, 0.4);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cloudPopup__button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(238, 90, 36, 0.6);
+}
+
+.cloudPopup__close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff4757;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  z-index: 3;
+  box-shadow: 0 3px 10px rgba(255, 71, 87, 0.4);
+}
+
+.cloudPopup__close:hover {
+  transform: rotate(90deg) scale(1.1);
+  background: #ff3742;
+}
+
+@keyframes cloudFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+}
+
+@keyframes iconBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes popupBlowAway {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+  30% {
+    opacity: 0.8;
+    transform: translateX(-20px) rotate(-5deg) scale(0.95);
+  }
+  60% {
+    opacity: 0.5;
+    transform: translateX(-50px) rotate(-10deg) scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(200px) rotate(-20deg) scale(0.8);
+    display: none;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .cloudPopup {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    transform: translateY(-100px);
+  }
+
+  .cloudPopupActive {
+    transform: translateY(0);
+  }
+
+  .cloudPopup__cloud-body {
+    min-width: auto;
+    padding: 20px;
+  }
+
+  .cloudPopup__title {
+    font-size: 16px;
+  }
+
+  .cloudPopup__text {
+    font-size: 13px;
+  }
+
+  .cloudPopup__button {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cloudPopup {
+    top: 5px;
+    right: 5px;
+    left: 5px;
+  }
+
+  .cloudPopup__cloud-body {
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  .cloudPopup__icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cloudPopup__title {
+    font-size: 15px;
+  }
+
+  .cloudPopup__button {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}

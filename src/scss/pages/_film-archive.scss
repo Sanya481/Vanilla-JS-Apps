@@ -1,0 +1,202 @@
+$gryffindor-red: #740001;
+$gryffindor-gold: #d3a625;
+$ravenclaw-blue: #0e1a40;
+$ravenclaw-bronze: #946b2d;
+$hogwarts-dark: #2c2c2c;
+$parchment: #f5f5dc;
+$magic-glow: #00b4d8;
+
+.magic-card {
+  position: relative;
+  background: linear-gradient(135deg, $ravenclaw-blue 0%, $hogwarts-dark 100%);
+  border: 3px solid $gryffindor-gold;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 35px rgba(116, 0, 1, 0.2),
+    inset 0 0 20px rgba(211, 166, 37, 0.1);
+
+  &:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: 0 20px 50px rgba(116, 0, 1, 0.3),
+      0 0 30px rgba(0, 180, 216, 0.4);
+
+    .card-glows::before {
+      opacity: 0.6;
+    }
+
+    .card-sparks {
+      opacity: 1;
+    }
+
+    .magic-link {
+      transform: translateX(5px);
+      text-shadow: 0 0 10px $magic-glow;
+    }
+  }
+
+  // Свечение карточки
+  .card-glows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle,
+        rgba($magic-glow, 0.3) 0%,
+        transparent 70%
+      );
+      opacity: 0.3;
+      transition: opacity 0.4s ease;
+    }
+  }
+
+  // Герб Хогвартса
+  .card-hogwarts {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, $gryffindor-red, $gryffindor-gold);
+    mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L2 7L12 12L22 7L12 2Z' stroke='black' stroke-width='2'/%3E%3Cpath d='M2 17L12 22L22 17' stroke='black' stroke-width='2'/%3E%3Cpath d='M2 12L12 17L22 12' stroke='black' stroke-width='2'/%3E%3C/svg%3E")
+      center/contain no-repeat;
+    opacity: 0.7;
+  }
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  color: $parchment;
+
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(211, 166, 37, 0.8);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .magic-card__title {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: $gryffindor-gold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+  }
+
+  .magic-card__subtitle {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: rgba($parchment, 0.9);
+  }
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+
+  .magic-badge {
+    background: linear-gradient(135deg, $gryffindor-red, #8b0000);
+    color: $gryffindor-gold;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid $gryffindor-gold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 8px rgba(116, 0, 1, 0.3);
+  }
+
+  .magic-link {
+    color: $magic-glow;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &::after {
+      content: '⚡';
+      margin-left: 0.5rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: translateX(3px) rotate(10deg);
+    }
+
+    &:hover {
+      color: $magic-glow;
+    }
+  }
+}
+
+// Искры магии
+.card-sparks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  &::before,
+  &::after {
+    content: '✨';
+    position: absolute;
+    font-size: 1.5rem;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  &::before {
+    top: 10%;
+    left: 15%;
+    animation-delay: 0.5s;
+  }
+
+  &::after {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 1s;
+  }
+}
+
+// Анимации
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+}

@@ -1,0 +1,73 @@
+$color-primary: #4a6fa5;
+$color-primary-dark: #3a5a8f;
+$color-primary-light: #6a8fc5;
+
+.show-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: transparent;
+  border: 2px solid #4a6fa5;
+  color: #4a6fa5;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(74, 111, 165, 0);
+
+  &:hover {
+    color: #3f39b0;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(74, 111, 165, 0.6);
+    border-color: #6a8fc5;
+
+    &::before {
+      opacity: 1;
+    }
+    .show-more__icon {
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+    }
+  }
+
+  &:active {
+    transform: translateY(2px); // Эффект "вдавливания"
+    box-shadow: 0 0 5px rgba(74, 111, 165, 0.3); // Уменьшаем свечение
+    &::before {
+      opacity: 0.3; // Приглушаем подсветку
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    transform: none;
+    background: #cccccc;
+    border: #cccccc;
+    box-shadow: none;
+    text-shadow: none;
+    color: #5f5276;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(74, 111, 165, 0.4),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+
+  &__icon {
+    transition: all 0.3s ease;
+  }
+}

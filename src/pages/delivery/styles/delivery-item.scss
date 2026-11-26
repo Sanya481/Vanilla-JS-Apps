@@ -1,0 +1,141 @@
+
+$eco-green: #2ecc71;
+$eco-dark-green: #27ae60;
+$eco-light-green: #a5df89;
+$eco-mint: #d5f5e3;
+$eco-white: #f9f9f9;
+$eco-black: #2c3e50;
+$eco-gray: #95a5a6;
+$eco-light-gray: #ecf0f1;
+$error-red: #e74c3c; // Добавлен для кнопки удаления
+$error-light-red: #fadbd8; // Добавлен для hover-эффекта кнопки удаления
+
+.eco-delivery-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: $eco-white;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba($eco-green, 0.1);
+  border-left: 4px solid $eco-green;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($eco-green, 0.15);
+  }
+
+  &--express {
+    border-left-color: $eco-dark-green;
+
+    .eco-item-badge {
+      background: $eco-dark-green;
+      color: white;
+    }
+  }
+}
+
+.eco-item-main {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.eco-item-icon {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($eco-green, 0.1);
+  border-radius: 8px;
+  color: $eco-dark-green;
+}
+
+.eco-item-info {
+  flex: 1;
+}
+
+.eco-item-name {
+  font-weight: 600;
+  color: $eco-black;
+  margin-bottom: 5px;
+}
+
+.eco-item-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: $eco-gray;
+}
+
+.eco-item-badge {
+  background: $eco-light-green;
+  color: $eco-dark-green;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.eco-item-details {
+  text-align: right;
+  margin-right: 15px;
+  min-width: 100px;
+}
+
+.eco-item-cost {
+  font-weight: 700;
+  color: $eco-dark-green;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.eco-item-carbon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  font-size: 12px;
+  color: $eco-gray;
+
+  .eco-carbon-icon {
+    font-size: 14px;
+  }
+
+  .eco-carbon-value {
+    color: $eco-green;
+    font-weight: 600;
+  }
+}
+
+.eco-item-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: $eco-gray;
+  transition: all 0.2s;
+  font-size: 16px;
+
+  &:hover {
+    background: rgba($error-red, 0.1);
+    color: $error-red;
+    transform: scale(1.1);
+  }
+}

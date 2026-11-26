@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" /> -->
+    <title>JS Sandbox</title>
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <div class="sidebar__logo"><span>JS</span> Sandbox</div>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="/book-store.html" class="sidebar__link">
+                <span>🛒 Книжный магазин</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/library.html" class="sidebar__link">
+                <span>📚 Домашняя библиотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item sidebar__item--active">
+              <a href="/portfolio.html" class="sidebar__link">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/survey-form.html" class="sidebar__link">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/delivery-form.html" class="sidebar__link">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/card-crafter.html" class="sidebar__link">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/film-archive.html" class="sidebar__link">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/network-monitor.html" class="sidebar__link">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/promise-loader.html" class="sidebar__link">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="content">
+        <div class="portfolio">
+          <h1 class="portfolio-title">JS Sandbox Projects</h1>
+          <div class="projects-grid">
+            <!-- Завершенные проекты -->
+
+            <article class="project-card bookstore-vintage">
+              <div class="card-bookmark"></div>
+              <div class="card-pages-decoration"></div>
+              <div class="card-content">
+                <div class="card-icon">📚</div>
+                <h2>
+                  Книжный магазин <span class="vintage-text">BOOKSTORE</span>
+                </h2>
+                <p class="book-text">
+                  Интерактивная корзина покупок для книжного магазина с учётом
+                  скидок и акций ✨
+                </p>
+                <div class="card-footer">
+                  <span class="status-badge bookmark-icon">Готово</span>
+                  <a href="/book-store.html" class="project-link vintage-link"
+                    >Открыть →</a
+                  >
+                </div>
+              </div>
+              <div class="card-library-stamp"></div>
+            </article>
+
+            <article class="project-card anime-naruto">
+              <div class="card-scroll-decoration"></div>
+              <div class="card-seal-decoration"></div>
+              <div class="card-content">
+                <div class="card-icon">📜</div>
+                <h2>Домашняя библиотека <span class="jp-text">図書館</span></h2>
+                <p class="scroll-text">
+                  Простой трекер для учета книг с чистым дизайном и базовым
+                  функционалом» 📚
+                </p>
+                <div class="card-footer">
+                  <span class="status-badge kunai-icon">完璧</span>
+                  <a href="/library.html" class="project-link shinobi-text"
+                    >術を開始 →</a
+                  >
+                </div>
+              </div>
+              <div class="card-ninja-shadow"></div>
+            </article>
+
+            <article class="project-card photo-studio">
+              <div class="card-film-strip"></div>
+              <div class="card-lens-flare"></div>
+              <div class="card-content">
+                <div class="card-icon">📸</div>
+                <h2>Фото галерея <span class="photo-text">PORTFOLIO</span></h2>
+                <p class="exposure-text">
+                  Профессиональная фотосъемка для ваших особенных моментов
+                </p>
+                <div class="card-footer">
+                  <span class="status-badge shutter-icon">В фокусе</span>
+                  <a href="/portfolio.html" class="project-link photo-link"
+                    >Открыть →</a
+                  >
+                </div>
+              </div>
+              <div class="card-aperture"></div>
+            </article>
+
+            <article class="project-card anime-ghibli">
+              <div class="spirited-border"></div>
+              <div class="card-content">
+                <div class="card-icon soot-sprite">✨</div>
+                <h2>Форма опроса<span class="small-dragon"></span></h2>
+                <p>
+                  Интерактивный квест-опрос<br />
+                  "Играй, отвечай, проходи!"
+                </p>
+                <div class="card-footer">
+                  <span class="status-badge leaf-icon">Done</span>
+                  <a href="/survey-form.html" class="project-link"
+                    >🎮✨ 準備中</a
+                  >
+                </div>
+              </div>
+              <div class="floating-lights"></div>
+            </article>
+
+            <article class="project-card anime-cyberpunk">
+              <div class="hologram-effect"></div>
+              <div class="card-content">
+                <div class="card-icon glitch-icon">⏳</div>
+                <h2 data-text="Эко-доставка">Эко-доставка</h2>
+                <p class="matrix-text">
+                  "Если курьер запыхался — это не выхлопы, это энтузиазм!" 😅💚
+                </p>
+                <div class="card-footer">
+                  <span class="status-badge neon-pulse">[РАЗРАБОТАН]</span>
+                  <a href="/delivery-form.html" class="project-link"
+                    >[ДОСТУП ОТКРЫТ]</a
+                  >
+                </div>
+              </div>
+              <div class="binary-rain"></div>
+            </article>
+
+            <article class="project-card anime-samurai">
+              <div class="card-content">
+                <div class="card-icon katana-icon">⚔️</div>
+                <h2>CardCrafter<span class="retro-glitch">_</span></h2>
+                <p class="vhs-effect">
+                  Создайте уникальную киберпанк-банковскую карту в стиле
+                  Cyberpunk 2077
+                </p>
+                <div class="card-footer">
+                  <span class="status-badge film-grain">Разработан</span>
+                  <a href="/card-crafter.html" class="project-link scanlines"
+                    >準備中</a
+                  >
+                </div>
+              </div>
+              <div class="film-scratches"></div>
+            </article>
+
+            <article class="magic-card completed">
+              <div class="card-glows"></div>
+              <div class="card-hogwarts"></div>
+              <div class="card-content">
+                <div class="card-icon">🎬</div>
+                <h2 class="magic-card__title">Магическая Фильмотека</h2>
+                <p class="magic-card__subtitle">
+                  Колдуй над своей коллекцией фильмов как настоящий волшебник!
+                  ✨
+                </p>
+                <div class="card-footer">
+                  <span class="magic-badge">Зачаровано</span>
+                  <a href="/film-archive.html" class="magic-link"
+                    >Отправиться →</a
+                  >
+                </div>
+              </div>
+              <div class="card-sparks"></div>
+            </article>
+
+            <article class="project-card network-card">
+              <div class="card-dataflow"></div>
+              <div class="card-nodes"></div>
+              <div class="card-content">
+                <div class="card-icon">🌐</div>
+                <h2 class="network-card__title">Мониторинг состояния сети</h2>
+                <p class="network-card__subtitle">
+                  Реал-тайм отслеживание соединения, обработка ошибок и умные
+                  уведомления о статусе сети
+                </p>
+                <div class="card-footer">
+                  <span class="network-badge">ONLINE</span>
+                  <a href="/network-monitor.html" class="network-link"
+                    >Подключиться</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card warehouse-theme">
+              <div class="card-scanner-beam"></div>
+              <div class="card-pallet-decoration"></div>
+              <div class="card-content">
+                <div class="card-icon">📦</div>
+                <h2>
+                  Складской учёт <span class="industrial-text">WAREHOUSE</span>
+                </h2>
+                <p class="scroll-text warehouse">
+                  Система управления складскими запасами с учётом веса,
+                  местоположения и сроков хранения
+                </p>
+                <div class="card-footer">
+                  <span class="status-badge forklift-icon">Отгружено</span>
+                  <a href="/warehouse.html" class="project-link industrial-text"
+                    >Открыть →</a
+                  >
+                </div>
+              </div>
+              <div class="card-barcode"></div>
+            </article>
+
+            <article class="project-card promise-neon">
+              <div class="promise-glow"></div>
+              <div class="promise-circuit"></div>
+              <div class="card-content">
+                <div class="promise-icon">🚀</div>
+                <h2 class="promise-title">
+                  PROMISE <span class="neon-accent">FLOW</span>
+                </h2>
+                <p class="promise-desc">
+                  Визуализация асинхронных операций с прогресс-барами и
+                  интерактивной загрузкой ⚡
+                </p>
+                <div class="promise-footer">
+                  <span class="neon-badge">Live Demo</span>
+                  <a href="/promise-loader.html" class="neon-link">Запуск →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card delivery-tracker-card">
+              <div class="delivery-route-line"></div>
+              <div class="delivery-pin-points"></div>
+              <div class="card-content">
+                <div class="card-icon">🛵</div>
+                <h2 class="delivery-title">
+                  Трекер доставок <span class="route-text">DELIVERY</span>
+                </h2>
+                <p class="delivery-desc">
+                  🚚 Система отслеживания посылок в реальном времени и статусами
+                  доставки
+                </p>
+                <div class="delivery-footer">
+                  <span class="delivery-badge">В пути</span>
+                  <a href="/delivery-tracker.html" class="delivery-link"
+                    >Отследить →</a
+                  >
+                </div>
+              </div>
+              <div class="delivery-map-grid"></div>
+            </article>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./src/pages/main.js" type="module"></script>
+  </body>
+</html>

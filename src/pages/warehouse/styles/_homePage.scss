@@ -1,0 +1,444 @@
+@use './variables' as *;
+
+@mixin smooth-shadow {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@mixin card-hover {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  @include smooth-shadow;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  margin: 30px 0;
+
+  &--warehouse {
+    border: 1px solid $warehouse-border;
+
+    .table__head {
+      background: linear-gradient(
+        135deg,
+        $warehouse-primary 0%,
+        $warehouse-secondary 100%
+      );
+
+      .table__header-cell {
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+
+        .headerBtn {
+          color: inherit;
+          font: inherit;
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          padding: 20px 24px;
+
+          &.headerBtn--shake {
+            animation: crazyShake 0.5s ease-in-out;
+          }
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
+
+          &:last-child {
+            border-right: none;
+          }
+
+          // Иконки для заголовков
+          &[data-sort='name']::before {
+            content: '📦 ';
+          }
+          &[data-sort='shelf']::before {
+            content: '🏗️ ';
+          }
+          &[data-sort='weight']::before {
+            content: '⚖️ ';
+          }
+          &[data-sort='date']::before {
+            content: '📅 ';
+          }
+          &[data-sort='actions']::before {
+            content: '🔧 ';
+          }
+
+          &::before {
+            font-size: 16px;
+            margin-right: 10px;
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+
+  // Заголовок таблицы
+  &__head {
+    .table__header-row {
+      @include card-hover;
+    }
+
+    .table__header-cell {
+      text-align: left;
+      font-size: 15px;
+      font-weight: 600;
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  // Тело таблицы
+  &__body {
+    .table__row {
+      transition: all 0.3s ease;
+      border-bottom: 1px solid $warehouse-border;
+
+      &:nth-child(even) {
+        background-color: $warehouse-light;
+      }
+
+      &:hover {
+        background-color: #ffe9dc;
+        transform: scale(1.002);
+
+        // Анимация появления иконки погрузчика
+        &::after {
+          content: '🚜';
+          position: absolute;
+          left: -35px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 20px;
+          animation: forkliftDrive 0.5s ease-out;
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .table__cell {
+      padding: 18px 24px;
+      color: $warehouse-text;
+      border-right: 1px solid $warehouse-border;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      &--name {
+        font-weight: 600;
+        color: $warehouse-primary;
+        max-width: 300px;
+
+        &::before {
+          content: '📍';
+          margin-right: 10px;
+          opacity: 0.7;
+        }
+      }
+
+      &--shelf {
+        color: $warehouse-secondary;
+        font-weight: 500;
+
+        &::before {
+          content: '📋';
+          margin-right: 10px;
+          opacity: 0.7;
+        }
+      }
+
+      &--weight {
+        color: $warehouse-accent-dark;
+        font-weight: 600;
+
+        &::after {
+          content: ' кг';
+          font-size: 13px;
+          opacity: 0.8;
+          margin-left: 2px;
+        }
+
+        &::before {
+          content: '⚖️';
+          margin-right: 10px;
+          opacity: 0.7;
+        }
+      }
+
+      &--date {
+        color: $warehouse-text-light;
+        font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+        font-size: 14px;
+
+        &::before {
+          content: '🕒';
+          margin-right: 10px;
+          opacity: 0.7;
+        }
+      }
+
+      &--actions {
+        .btn {
+          margin: 0 6px;
+          transition: all 0.2s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Анимация погрузчика
+@keyframes forkliftDrive {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+// Кнопки
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  &--add {
+    background: linear-gradient(
+      135deg,
+      $warehouse-secondary,
+      $warehouse-primary
+    );
+    color: white;
+    padding: 14px 28px;
+    font-size: 15px;
+    @include card-hover;
+
+    &::after {
+      content: '➕';
+      margin-left: 8px;
+      font-size: 16px;
+    }
+  }
+
+  &--edit {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+    padding: 8px 16px;
+    font-size: 13px;
+
+    &::after {
+      content: '✏️';
+      margin-left: 6px;
+    }
+  }
+
+  &--remove {
+    background: linear-gradient(135deg, #f56565, #e53e3e);
+    color: white;
+    padding: 8px 16px;
+    font-size: 13px;
+
+    &::after {
+      content: '🗑️';
+      margin-left: 6px;
+    }
+  }
+}
+
+// Сообщение о пустой таблице
+.table__empty {
+  text-align: center;
+  padding: 60px 40px;
+  color: $warehouse-text-light;
+  font-size: 17px;
+  background: $warehouse-light;
+  border-radius: 12px;
+  border: 2px dashed $warehouse-border;
+  margin: 40px 0;
+  @include smooth-shadow;
+
+  &::before {
+    content: '🏭';
+    font-size: 48px;
+    display: block;
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+
+  // Анимированный грузовик
+  &::after {
+    content: '🚛';
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    font-size: 24px;
+    animation: truckBounce 2s ease-in-out infinite;
+  }
+}
+
+// Анимация прыгающего грузовика
+@keyframes truckBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(2deg);
+  }
+}
+
+// Контейнер приложения
+#app_warehouse {
+  padding: 40px;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  .btn-homePage.btn--add {
+    display: block;
+    margin: 40px 0;
+    max-width: 280px;
+    font-weight: 600;
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+
+    &__header-cell,
+    &__cell {
+      padding: 16px 20px;
+    }
+
+    &__cell--actions {
+      .btn {
+        display: block;
+        margin: 6px 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .btn {
+    &--add {
+      padding: 16px 24px;
+      font-size: 14px;
+    }
+  }
+
+  #app_warehouse {
+    padding: 20px;
+  }
+}
+
+// Плавные анимации для всей страницы
+* {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+// Специальные эффекты
+.warehouse-global {
+  // Тонкая анимация фона
+  background: linear-gradient(-45deg, #f7fafc, #edf2f7, #e2e8f0, #f7fafc);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// драматичная тряска
+@keyframes crazyShake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

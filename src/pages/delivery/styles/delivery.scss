@@ -1,0 +1,519 @@
+
+$eco-green: #2ecc71;
+$eco-dark-green: #27ae60;
+$eco-light-green: #a5df89;
+$eco-mint: #d5f5e3;
+$eco-white: #f9f9f9;
+$eco-black: #2c3e50;
+$eco-gray: #95a5a6;
+$eco-light-gray: #ecf0f1;
+
+
+@mixin float($duration: 3s) {
+  animation: float $duration ease-in-out infinite;
+}
+
+@mixin pedal($duration: 0.5s) {
+  animation: pedal $duration linear infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pedal {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes leafFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.eco-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $eco-mint;
+  z-index: 0;
+  overflow: hidden;
+
+  .leaf-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,50 Q50,30 70,50 Q50,70 30,50" fill="none" stroke="%23a5df89" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+  }
+
+  .bike-animation {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    .bike {
+      font-size: 80px;
+      @include float();
+      position: relative;
+      z-index: 2;
+
+      &::after {
+        content: '🚴';
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-size: 30px;
+        @include pedal();
+      }
+    }
+
+    .bike-shadow {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 10px;
+      background: rgba($eco-black, 0.2);
+      border-radius: 50%;
+      filter: blur(5px);
+    }
+  }
+
+  .floating-leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    span {
+      position: absolute;
+      font-size: 24px;
+      opacity: 0;
+      animation: leafFall linear infinite;
+
+      &:nth-child(1) {
+        left: 10%;
+        animation-duration: 15s;
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        left: 30%;
+        animation-duration: 20s;
+        animation-delay: 5s;
+      }
+      &:nth-child(3) {
+        left: 70%;
+        animation-duration: 18s;
+        animation-delay: 8s;
+      }
+    }
+  }
+}
+
+.eco-delivery {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.eco-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.eco-title {
+  .eco-main-title {
+    display: block;
+    font-size: 48px;
+    font-weight: 800;
+    color: $eco-dark-green;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 rgba($eco-white, 0.8);
+  }
+
+  .eco-subtitle {
+    font-size: 18px;
+    color: $eco-black;
+    opacity: 0.8;
+    font-weight: 500;
+  }
+}
+
+.eco-badge {
+  background: $eco-white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $eco-dark-green;
+  box-shadow: 0 4px 10px rgba($eco-black, 0.1);
+
+  .eco-icon {
+    font-size: 18px;
+  }
+}
+
+.eco-calculator-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  flex-grow: 1;
+  background: $eco-white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba($eco-black, 0.1);
+  overflow: hidden;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.eco-delivery-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.eco-form-group {
+  position: relative;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: $eco-black;
+    font-size: 16px;
+  }
+
+  .eco-input-wrapper {
+    position: relative;
+  }
+
+  input {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    border-radius: 12px;
+    border: 2px solid $eco-light-gray;
+    background: $eco-white;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba($eco-black, 0.05);
+
+    &:focus {
+      outline: none;
+      border-color: $eco-green;
+      box-shadow: 0 0 0 3px rgba($eco-green, 0.2);
+    }
+
+    &::placeholder {
+      color: $eco-gray;
+      opacity: 0.6;
+    }
+  }
+
+  .eco-input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: $eco-green;
+
+    &.eco-input-icon--w-hint {
+      top: 35%;
+    }
+  }
+
+  .eco-input-hint {
+    font-size: 12px;
+    color: $eco-gray;
+    margin-top: 5px;
+    padding-left: 10px;
+  }
+}
+
+.eco-form-group.error {
+  input {
+    border-color: red;
+  }
+  .eco-input-hint {
+    color: red;
+    font-weight: bold;
+  }
+}
+
+.eco-submit-btn {
+  background: $eco-green;
+  color: $eco-white;
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s;
+  margin-top: 10px;
+  box-shadow: 0 4px 0 $eco-dark-green;
+
+  &:hover {
+    background: $eco-dark-green;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 $eco-dark-green;
+
+    .eco-btn-icon {
+      transform: translateX(5px);
+    }
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: none;
+  }
+
+  .eco-btn-icon {
+    transition: all 0.3s;
+    display: inline-block;
+    font-size: 24px;
+  }
+}
+
+.eco-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.eco-stat-item {
+  background: $eco-light-green;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+
+  .eco-stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: $eco-dark-green;
+    margin-bottom: 5px;
+  }
+
+  .eco-stat-label {
+    font-size: 12px;
+    color: $eco-black;
+    opacity: 0.8;
+  }
+}
+
+.eco-delivery-list {
+  background: $eco-white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $eco-light-gray;
+  overflow: hidden;
+}
+
+.eco-list-header {
+  padding: 20px;
+  background: $eco-light-green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 22px;
+    color: $eco-dark-green;
+  }
+
+  &__clear-btn {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: $eco-gray;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba($eco-light-gray, 0.5);
+      color: $eco-dark-green;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  &__clear-icon {
+    font-size: 16px;
+  }
+}
+
+.eco-list-summary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .eco-total-cost {
+    font-weight: 700;
+    font-size: 18px;
+    color: $eco-dark-green;
+  }
+
+  .eco-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: $eco-black;
+
+    .eco-stars {
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+.eco-list-items {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.eco-empty-state {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $eco-gray;
+  padding: 40px 0;
+  transition: opacity 0.3s ease-out,
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1), height 0.3s ease 0.1s,
+    padding 0.3s ease 0.1s;
+
+  .eco-empty-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  &.hide {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+    height: 0;
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+
+    .eco-empty-icon {
+      transform: rotate(-15deg) scale(0.8);
+    }
+
+    p {
+      transform: translateX(-10px);
+    }
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .eco-delivery {
+    padding: 20px;
+  }
+
+  .eco-title {
+    .eco-main-title {
+      font-size: 36px;
+    }
+
+    .eco-subtitle {
+      font-size: 16px;
+    }
+  }
+
+  .eco-badge {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .eco-calculator-container {
+    padding: 20px;
+  }
+
+  .bike-animation {
+    display: none;
+  }
+}

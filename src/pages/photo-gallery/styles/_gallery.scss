@@ -1,0 +1,49 @@
+.portfolio-gallery {
+  padding: 0 1rem 2rem;
+  width: 100%;
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: flex-start; /* Важно для разных высот */
+}
+
+.gallery-card {
+  flex: 0 1 200px; /* Минимум 200px, но может уменьшаться дальше */
+  min-width: 0; /* Исправляет проблему с переполнением */
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  /* Для очень маленьких экранов */
+  @media (max-width: 480px) {
+    flex-basis: 150px; /* Ещё меньше на мобильных */
+  }
+
+  /* Для больших экранов */
+  @media (min-width: 1200px) {
+    flex-basis: 250px; /* Возвращаем к 250px */
+  }
+}
+
+.gallery-card img {
+  width: 100%;
+  height: auto; /* Сохраняем пропорции */
+  border-radius: 8px;
+  display: block; /* Убираем лишнее пространство снизу */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: contain; /* Гарантируем, что изображение не обрезается */
+}
+
+.gallery-card:hover img {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Оптимизация для очень маленьких карточек */
+@media (max-width: 360px) {
+  .gallery-card {
+    flex-basis: 120px;
+  }
+}

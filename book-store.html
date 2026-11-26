@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" /> -->
+    <title>JS Sandbox</title>
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <a href="/index.html" class="sidebar__logo"><span>JS</span> Sandbox</a>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link active">
+                <span>🛒 Книжный магазин</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link" href="/library.html">
+                <span>📚 Домашняя библиотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/portfolio.html" class="sidebar__link">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/survey-form.html" class="sidebar__link">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/delivery-form.html" class="sidebar__link">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/card-crafter.html" class="sidebar__link">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+              <li class="sidebar__item">
+              <a href="/film-archive.html" class="sidebar__link">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+             <li class="sidebar__item">
+              <a href="/network-monitor.html" class="sidebar__link">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+              <li class="sidebar__item">
+              <a href="/warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="/promise-loader.html" class="sidebar__link">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item" >
+              <a href="/delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент (загружается из других HTML) -->
+      <main class="content content--store">
+        <!-- Здесь будет iframe или контент страницы -->
+        <section class="book-store" data-book-store>
+          <div class="book-store__header">
+            <h1 class="book-store__title">Книжный магазин JS Sandbox</h1>
+
+            <!-- Поиск и сортировка -->
+            <div class="book-store__controls">
+              <!-- Поле поиска -->
+              <form class="search" role="search" data-search-form>
+                <label for="book-search" class="search__label visually-hidden"
+                  >Поиск книг</label
+                >
+                <div class="search__wrapper">
+                  <input
+                    id="book-search"
+                    class="search__input"
+                    type="search"
+                    placeholder="Волшебные миры, древние знания..."
+                    aria-label="Поиск по названию книги"
+                  />
+                  <svg
+                    class="search__icon search__icon--search"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M21 21L16.65 16.65"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <button
+                    class="search__button"
+                    type="submit"
+                    aria-label="Искать"
+                  >
+                    <svg
+                      class="search__icon search__icon--submit"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M5 12H19"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12 5L19 12L12 19"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+
+              <!-- Сортировка -->
+              <div class="sort" data-sort>
+                <button
+                  class="sort__button"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  data-sort-toggle
+                >
+                  <span class="sort__selected">Сортировка</span>
+                  <svg
+                    class="sort__icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M6 9L12 15L18 9"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <ul
+                  class="sort__dropdown"
+                  role="listbox"
+                  data-sort-dropdown
+                  hidden
+                >
+                  <li
+                    class="sort__option"
+                    role="option"
+                    data-sort-option="price-asc"
+                  >
+                    По цене (дешевые)
+                  </li>
+                  <li
+                    class="sort__option"
+                    role="option"
+                    data-sort-option="price-desc"
+                  >
+                    По цене (дорогие)
+                  </li>
+                  <li
+                    class="sort__option"
+                    role="option"
+                    data-sort-option="title-asc"
+                  >
+                    По названию (А-Я)
+                  </li>
+                  <li
+                    class="sort__option"
+                    role="option"
+                    data-sort-option="title-desc"
+                  >
+                    По названию (Я-А)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Акции недели -->
+            <div class="book-store__promo promo" data-promo-block>
+              <span class="promo__label">🔥 Акция недели</span>
+              <div class="promo__buttons">
+                <button
+                  class="promo__button promo__button--deal"
+                  data-promo-cheapest
+                  aria-label="Показать самую дешёвую книгу"
+                >
+                  <svg
+                    class="promo__icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span>Выгодно</span>
+                </button>
+                <button
+                  class="promo__button promo__button--premium"
+                  data-promo-premium
+                  aria-label="Показать премиум книгу"
+                >
+                  <svg
+                    class="promo__icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span>Премиум</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Каталог книг -->
+          <section class="book-catalog">
+            <div class="book-catalog__grid" data-book-catalog>
+              <!-- Карточки книги  -->
+            </div>
+            <!-- Кнопка "Показать ещё" -->
+            <button class="book-catalog__show-more show-more" data-show-more>
+              <span class="show-more__text">Показать ещё</span>
+              <svg
+                class="show-more__icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 9L12 16L5 9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </section>
+
+          <!-- Корзина -->
+          <aside class="cart" aria-labelledby="cart-heading" data-cart>
+            <h2 id="cart-heading" class="cart__title">Ваша корзина</h2>
+            <div class="cart__content" data-cart-content>
+              <!-- Элементы корзины -->
+
+              <!-- Сообщение "пусто" -->
+              <p class="cart__empty-msg" data-cart-empty-msg>
+                Ваша корзина пуста
+              </p>
+            </div>
+
+            <div class="cart__footer">
+              <!-- Поле для промокода  -->
+              <div class="cart__promocode promocode-field" data-promocode-block>
+                <div class="promocode-field__wrapper">
+                  <label class="promocode-field__label">
+                    <span class="visually-hidden">Промокод</span>
+                    <input
+                      type="text"
+                      name="promocode"
+                      placeholder="Введите книжный промокод"
+                      data-promocode-input
+                      disabled
+                    />
+                    <svg
+                      class="promocode-field__icon"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      />
+                      <path
+                        d="M7 9H17"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </label>
+                  <button
+                    class="promocode-field__btn"
+                    type="button"
+                    data-promocode-btn
+                    aria-label="Применить промокод"
+                    disabled
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M5 12H19M19 12L12 5M19 12L12 19"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="promocode-field__message"
+                  data-promocode-message
+                  hidden
+                ></div>
+              </div>
+
+              <!-- Итоговая цена -->
+              <div class="cart__total">
+                Итого: $
+                <div
+                  class="cart__total-price"
+                  aria-live="polite"
+                  data-cart-total-price
+                >
+                  <span class="original-price" data-original-price></span>
+                  <span class="final-price" data-final-price></span>
+                  <span
+                    class="discount-badge"
+                    data-discount-badge
+                    hidden
+                  ></span>
+                </div>
+              </div>
+              <button
+                class="cart__checkout-btn"
+                data-cart-checkout-btn
+                disabled
+              >
+                Оформить заказ
+              </button>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <div data-gift-popup-container></div>
+
+    <!-- модалка -->
+    <div class="modal" data-book-modal-promo aria-hidden="true">
+      <div class="modal__overlay" data-modal-close-j></div>
+
+      <div class="modal__content" data-modal-content>
+        <!-- Кнопка закрытия -->
+        <button class="modal__close" data-modal-close aria-label="Закрыть">
+          <svg
+            class="modal__close-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <!-- Контент модалки -->
+        <div class="modal__book">
+          <!-- Левая часть (текст) -->
+          <div class="modal__details">
+            <h2 class="modal__title" data-modal-title>Название книги</h2>
+            <p class="modal__author" data-modal-author>Автор</p>
+            <div class="modal__rating">
+              ★★★★☆ <span data-modal-rating>4.5</span>
+            </div>
+            <p class="modal__description" data-modal-description>
+              Описание книги...
+            </p>
+            <div class="modal__price">$<span data-modal-price>19.99</span></div>
+            <button class="modal__add-cart" data-add-to-cart>
+              Добавить в корзину
+            </button>
+          </div>
+
+          <!-- Правая часть (обложка) -->
+          <div class="modal__cover-wrapper">
+            <img
+              class="modal__cover"
+              src="/img/books/book-4.jpg"
+              alt="Обложка книги"
+              data-modal-cover
+            />
+            <div class="modal__shine"></div>
+            <!-- Эффект "сияния" -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Шаблон карточки книги -->
+    <template id="book-card">
+      <article class="book-card">
+        <div class="book-card__inner">
+          <div class="book-card__cover-container">
+            <img
+              src="/img/book-1.jpg"
+              alt="Обложка книги 'JavaScript: The Good Parts'"
+              class="book-card__cover"
+              width="120"
+              height="180"
+            />
+          </div>
+          <div class="book-card__content">
+            <div class="book-card__header">
+              <h3 class="book-card__title">JavaScript: The Good Parts</h3>
+              <p class="book-card__author">Douglas Crockford</p>
+            </div>
+            <div class="book-card__rating" aria-label="Рейтинг: 4.5 из 5">
+              ★★★★☆ <span class="book-card__rating-value">4.5</span>
+            </div>
+            <p class="book-card__description">
+              Классическое руководство по сильным сторонам JavaScript.
+            </p>
+            <div class="book-card__footer">
+              <div class="book-card__price" aria-label="Цена: 19.99 долларов">
+                $19.99
+              </div>
+              <button
+                class="book-card__button button--primary"
+                aria-label="Добавить в корзину"
+                data-book-id="1"
+              >
+                В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <!-- Карточка книги в корзине  -->
+    <template id="book-in-cart">
+      <article
+        class="cart-item"
+        data-book-id="123"
+        aria-labelledby="cart-item-title-123"
+      >
+        <div class="cart-item__cover-container">
+          <img
+            src="book-cover.jpg"
+            alt="Обложка книги «Название книги»"
+            class="cart-item__cover"
+            width="60"
+            height="90"
+            loading="lazy"
+          />
+        </div>
+        <div class="cart-item__content">
+          <h3 id="cart-item-title-123" class="cart-item__title">
+            Название книги
+          </h3>
+          <p class="cart-item__author">Автор книги</p>
+          <div class="cart-item__controls">
+            <button
+              class="cart-item__button cart-item__button--decrease"
+              aria-label="Уменьшить количество"
+              data-decrease-qty
+            >
+              −
+            </button>
+            <span class="cart-item__quantity" aria-live="polite">1</span>
+            <button
+              class="cart-item__button cart-item__button--increase"
+              aria-label="Увеличить количество"
+              data-increase-qty
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <div class="cart-item__price">$<span>19.99</span></div>
+        <button
+          class="cart-item__remove button--text"
+          aria-label="Удалить из корзины"
+          data-remove-from-cart
+        >
+          &times;
+        </button>
+      </article>
+    </template>
+
+    <script src="./src/pages/book-store/index.js" type="module"></script>
+  </body>
+</html>
