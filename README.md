@@ -86,8 +86,9 @@
 ├── warehouse.html
 ├── delivery-tracker.html
 ├── public/
-│   ├── docs/                 # Сертификат, превью-коллаж
-│   └── favicon/              # Фавиконки, webmanifest
+│   ├── assets/images/      # Превью-коллаж
+│   ├── docs/               # Сертификат
+│   └── favicon/            # Фавиконки, webmanifest
 ├── src/
 │   ├── pages/                # Логика каждого проекта
 │   │   ├── book-library/     # Библиотека (CRUD, модальные окна)
