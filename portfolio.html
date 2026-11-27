@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" /> -->    
+    <title>Фото галерея | LensArt</title>
+    <script type="module" crossorigin src="/Vanilla-JS-Apps/assets/js/portfolio-CchP4ysk.js"></script>
+    <link rel="modulepreload" crossorigin href="/Vanilla-JS-Apps/assets/js/main-Ckyfot9f.js">
+    <link rel="stylesheet" crossorigin href="/Vanilla-JS-Apps/assets/css/main-CJCzi9gr.css">
+    <link rel="stylesheet" crossorigin href="/Vanilla-JS-Apps/assets/css/portfolio-CdDvCLjs.css">
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <a href="index.html" class="sidebar__logo"><span>JS</span> Sandbox</a>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="book-store.html" class="sidebar__link">
+                <span>🛒 Книжный магазин</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="library.html" class="sidebar__link">
+                <span>📚 Домашняя библиотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link active" aria-current="page">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="survey-form.html" class="sidebar__link">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="delivery-form.html" class="sidebar__link">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="card-crafter.html" class="sidebar__link">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+              <li class="sidebar__item">
+              <a href="film-archive.html" class="sidebar__link">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+             <li class="sidebar__item">
+              <a href="network-monitor.html" class="sidebar__link">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+             <li class="sidebar__item">
+              <a href="warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="promise-loader.html" class="sidebar__link">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item" >
+              <a href="delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle" aria-label="Переключить тему">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="content content--portfolio">
+        <!-- Шапка портфолио -->
+        <header class="portfolio-header">
+          <div class="portfolio-header__top">
+            <div class="portfolio-header__brand">
+              <div class="portfolio-header__logo">
+                <svg
+                  class="portfolio-header__logo-icon"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M20 4H16.83L15.59 2.65C15.22 2.24 14.68 2 14.12 2H9.88C9.32 2 8.78 2.24 8.4 2.65L7.17 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <span class="portfolio-header__logo-text">LensArt</span>
+              </div>
+              <div class="portfolio-header__hero">
+                <h1 class="portfolio-header__title">ФотоИскусство</h1>
+                <p class="portfolio-header__subtitle">
+                  Профессиональная фотосъемка для ваших особенных моментов
+                </p>
+                <div class="portfolio-header__scroll-hint">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.41 8.59L12 13.17L16.59 8.59L18 10L12 16L6 10L7.41 8.59Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="contact-pill">
+                <a href="tel:+79991234567" class="pill-item">
+                  <span class="icon">📞</span>
+                  <span class="text">Call us</span>
+                </a>
+                <a href="mailto:contact@lensart.ru" class="pill-item">
+                  <span class="icon">✉️</span>
+                  <span class="text">Email</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-header__filter">
+            <button
+              class="filter-button filter-button--active"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              <span>Все работы</span>
+            </button>
+            <button
+              class="filter-button"
+              data-filter="nature"
+              aria-pressed="false"
+            >
+              <span>Природа</span>
+            </button>
+            <button
+              class="filter-button"
+              data-filter="portrait"
+              aria-pressed="false"
+            >
+              <span>Портреты</span>
+            </button>
+            <button
+              class="filter-button"
+              data-filter="urban"
+              aria-pressed="false"
+            >
+              <span>Город</span>
+            </button>
+            <button
+              class="filter-button"
+              data-filter="blackwhite"
+              aria-pressed="false"
+            >
+              <span>Ч/Б</span>
+            </button>
+            <button
+              class="filter-button"
+              data-filter="wedding"
+              aria-pressed="false"
+            >
+              <span>Свадьбы</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Галерея -->
+        <div class="portfolio-gallery">
+          <ul class="gallery-grid" data-gallery-list>
+            <li
+              class="gallery-card"
+              data-category="nature"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-1-au8xdjnH.jpeg"
+                alt="Горный пейзаж на закате"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="portrait"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-2-BBe8OzNP.jpeg"
+                alt="Женский портрет в студии"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="urban"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-3-aJuU-9jx.jpeg"
+                alt="Городская улица ночью"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="nature"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-4-D1O88U8F.jpeg"
+                alt="Лесной пейзаж утром"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="portrait"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-5-ZfKY3S0F.jpeg"
+                alt="Мужской портрет на улице"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-6-BhUS-Xhw.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-7-7Ak2lsMI.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-8-Co4fKVcd.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-9-vmCyBWfW.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-10-C-7INSXW.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-11-CCq8xwIx.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-12-CrR2Bmp6.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-13-jlCyANC5.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-14-BEPcyDUh.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+            <li
+              class="gallery-card"
+              data-category="blackwhite"
+              tabindex="0"
+              role="button"
+            >
+              <img
+                src="/Vanilla-JS-Apps/assets/images/photo-15-CF_4aZc8.jpeg"
+                alt="Черно-белая архитектурная фотография"
+                class="gallery-card__image"
+                loading="lazy"
+              />
+            </li>
+          </ul>
+        </div>
+
+        <!-- Модальное окно -->
+        <div
+          class="gallery-modal"
+          id="image-modal"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="false"
+          aria-labelledby="gallery-modal-title"
+          data-gallery-modal
+        >
+          <div class="gallery-modal__overlay" tabindex="-1"></div>
+          <div class="gallery-modal__content" data-gallery-modal-content>
+            <button
+              class="gallery-modal__close"
+              aria-label="Закрыть модальное окно"
+              data-gallery-modal-close
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 6L6 18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M6 6L18 18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div class="gallery-modal__image-container">
+              <div class="gallery-modal__image-wrapper">
+                <img
+                  src="/img/photo-gallery/photo-1.jpeg"
+                  alt=""
+                  class="gallery-modal__image"
+                  id="modal-image"
+                  data-modal-image
+                />
+              </div>
+
+              <div class="gallery-modal__info">
+                <h2 class="gallery-modal__title" id="gallery-modal-title">
+                  Название фотографии
+                </h2>
+                <p class="gallery-modal__description">Описание фотографии</p>
+
+                <div class="gallery-modal__meta">
+                  <p class="gallery-modal__date">
+                    Дата съемки: <time datetime="2023-01-01">01.01.2023</time>
+                  </p>
+                  <p class="gallery-modal__location">Место: Город, Страна</p>
+                </div>
+
+                <div class="gallery-modal__actions">
+                  <button
+                    class="gallery-modal__download"
+                    aria-label="Скачать фото"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21 15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M7 10L12 15L17 10"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12 15V3"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <span class="gallery-modal__download-text">Скачать</span>
+                  </button>
+
+                  <button
+                    class="gallery-modal__fullscreen"
+                    aria-label="Полноэкранный режим"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 3H5C3.89543 3 3 3.89543 3 5V8"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M21 8V5C21 3.89543 20.1046 3 19 3H16"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M16 21H19C20.1046 21 21 20.1046 21 19V16"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M3 16V19C3 20.1046 3.89543 21 5 21H8"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="gallery-modal__nav gallery-modal__nav--prev"
+              aria-label="Предыдущее фото"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 18L9 12L15 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <button
+              class="gallery-modal__nav gallery-modal__nav--next"
+              aria-label="Следующее фото"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 6L15 12L9 18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div class="gallery-modal__counter">
+              <span class="gallery-modal__current-index">1</span>
+              <span class="gallery-modal__separator">/</span>
+              <span class="gallery-modal__total-count">10</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

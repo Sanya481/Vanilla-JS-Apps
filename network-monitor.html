@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" />-->
+    <title>Домашняя библиотека | JS Sandbox</title>
+    <script type="module" crossorigin src="/Vanilla-JS-Apps/assets/js/networkMonitor-C953DfTM.js"></script>
+    <link rel="modulepreload" crossorigin href="/Vanilla-JS-Apps/assets/js/main-Ckyfot9f.js">
+    <link rel="stylesheet" crossorigin href="/Vanilla-JS-Apps/assets/css/main-CJCzi9gr.css">
+    <link rel="stylesheet" crossorigin href="/Vanilla-JS-Apps/assets/css/networkMonitor-BIa548hc.css">
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <a href="index.html" class="sidebar__logo"><span>JS</span> Sandbox</a>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="book-store.html">🛒 Книжный магазин</a>
+            </li>
+            <li class="sidebar__item">
+              <a href="library.html" class="sidebar__link"
+                >📖 Домашняя библиотека
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="portfolio.html" class="sidebar__link">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="survey-form.html" class="sidebar__link">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="delivery-form.html" class="sidebar__link">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="card-crafter.html" class="sidebar__link">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="film-archive.html" class="sidebar__link">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link active">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="promise-loader.html" class="sidebar__link">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="content">
+        <div class="page-header">
+          <div class="header-content">
+            <div class="header-left">
+              <div class="header-glitch">
+                <h1 class="header-title">Мониторинг Сети</h1>
+                <div class="header-subtitle">
+                  Real-time connection status & analytics
+                </div>
+              </div>
+            </div>
+            <div class="header-right">
+              <div class="header-status">
+                <span class="status-indicator online"></span>
+                <span class="status-text">Система активна</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="app_network-monitor"></div>
+      </main>
+
+    </div>
+  </body>
+</html>

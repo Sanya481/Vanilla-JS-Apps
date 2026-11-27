@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" /> -->
+    <title>JS Sandbox</title>
+    <script type="module" crossorigin src="/Vanilla-JS-Apps/assets/js/promiseLoader-D0OHjf8x.js"></script>
+    <link rel="modulepreload" crossorigin href="/Vanilla-JS-Apps/assets/js/main-Ckyfot9f.js">
+    <link rel="stylesheet" crossorigin href="/Vanilla-JS-Apps/assets/css/main-CJCzi9gr.css">
+    <link rel="stylesheet" crossorigin href="/Vanilla-JS-Apps/assets/css/promiseLoader-C1YB8Cf0.css">
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <a href="index.html" class="sidebar__logo"><span>JS</span> Sandbox</a>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="book-store.html" class="sidebar__link">
+                <span>🛒 Книжный магазин</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a class="sidebar__link" href="library.html">
+                <span>📚 Домашняя библиотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="portfolio.html" class="sidebar__link">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="survey-form.html" class="sidebar__link">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="delivery-form.html" class="sidebar__link">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="card-crafter.html" class="sidebar__link">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="film-archive.html" class="sidebar__link">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="network-monitor.html" class="sidebar__link">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link active">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item" >
+              <a href="delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент (загружается из других HTML) -->
+      <main class="content content--promise" data-content-promise>
+        <h1 class="main-title">Асинхронные операции с Progress Bar</h1>
+
+        <section class="section">
+          <h2 class="section-title">Базовые Progress Bar</h2>
+          <div class="progressBar-wrapper" data-progressBar-wrapper></div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Базовые Promise</h2>
+          <div class="image-wrapper" data-img-wrapper></div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Promise с Progress Bar</h2>
+          <div class="promise-with-bar">
+            <div class="promise-item">
+              <h3>Загрузка котиков</h3>
+              <div data-imgCat-bar-wrapper></div>
+            </div>
+            <div class="promise-item">
+              <h3>Загрузка собачек</h3>
+              <div data-imgDog-bar-wrapper></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+  </body>
+</html>

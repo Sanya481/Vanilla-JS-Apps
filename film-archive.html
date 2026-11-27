@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Базовый favicon (для всех браузеров) -->
+    <link
+      rel="icon"
+      href="favicon/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="favicon/favicon-32x32.png"
+      type="image/png"
+      sizes="any"
+    />
+    <!-- Для Apple (Safari, iOS) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <!-- Для Android (Chrome) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-chrome-192x192.png"
+    />
+    <!-- Для PWA -->
+    <!-- <link rel="manifest" href="site.webmanifest" /> -->
+    <title>Домашяя фильмотека | JS Sandbox</title>
+    <script type="module" crossorigin src="/Vanilla-JS-Apps/assets/js/filmArchive-CA50vhWn.js"></script>
+    <link rel="modulepreload" crossorigin href="/Vanilla-JS-Apps/assets/js/main-Ckyfot9f.js">
+    <link rel="stylesheet" crossorigin href="/Vanilla-JS-Apps/assets/css/main-CJCzi9gr.css">
+    <link rel="stylesheet" crossorigin href="/Vanilla-JS-Apps/assets/css/filmArchive-BA04_5Kp.css">
+  </head>
+  <body>
+    <div class="sandbox">
+      <!-- Сайдбар -->
+      <aside class="sidebar">
+        <a href="index.html" class="sidebar__logo"><span>JS</span> Sandbox</a>
+        <nav class="sidebar__nav">
+          <ul>
+            <li class="sidebar__item">
+              <a href="book-store.html">
+                <span>🛒 Книжный магазин</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="library.html">
+                <span>📚 Домашняя библиотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item sidebar__item--active">
+              <a href="portfolio.html" class="sidebar__link">
+                <span>📷 Фото галерея</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="survey-form.html" class="sidebar__link">
+                <span>👋 Форма опроса</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="delivery-form.html" class="sidebar__link">
+                <span>🌿 Эко-доставка</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="card-crafter.html" class="sidebar__link">
+                <span>💳 CardCrafter</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link active">
+                <span>🍿 Фильмотека</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="network-monitor.html" class="sidebar__link">
+                <span>🔌 Мониторинг сети</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="warehouse.html" class="sidebar__link">
+                <span>🚛 Складской учёт</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="promise-loader.html" class="sidebar__link">
+                <span>⏱️ Promise-loader</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="delivery-tracker.html" class="sidebar__link">
+                <span>🛵 Трекер доставок</span>
+              </a>
+            </li>
+            <!-- Добавляй новые задания тут -->
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="theme-toggle">🌓</button>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="content film-content">
+        <h1 class="film-title">Домашняя фильмотека</h1>
+
+        <form id="film-form" data-film-form class="film-form">
+          <div class="film-form__group">
+            <label for="title" class="film-form__label">Название фильма</label>
+            <input
+              type="text"
+              data-film-title
+              name="title"
+              id="title"
+              class="film-form__input"
+              placeholder="Введите название фильма"
+              required
+            />
+          </div>
+
+          <div class="film-form__group">
+            <label for="genre" class="film-form__label">Жанр</label>
+            <input
+              type="text"
+              id="genre"
+              data-film-genre
+              name="genre"
+              class="film-form__input"
+              placeholder="Введите жанр фильма"
+              required
+            />
+          </div>
+
+          <div class="film-form__group">
+            <label for="releaseYear" class="film-form__label"
+              >Год выпуска</label
+            >
+            <input
+              type="number"
+              id="releaseYear"
+              data-film-releaseYear
+              name="releaseYear"
+              class="film-form__input"
+              placeholder="Год выпуска"
+              min="1888"
+              max="2030"
+              required
+            />
+          </div>
+
+          <div class="film-form__checkbox">
+            <input
+              type="checkbox"
+              id="isWatched"
+              data-film-isWatched
+              name="isWatched"
+              class="film-form__checkbox-input"
+            />
+            <label for="isWatched" class="film-form__checkbox-label"
+              >Успели посмотреть?</label
+            >
+          </div>
+
+          <div class="film-form__footer">
+            <button type="submit" class="film-form__btn film-form__btn--submit">
+              Обновить
+            </button>
+            <button
+              type="button"
+              data-reset-edit
+              class="film-form__btn film-form__btn--cancel"
+            >
+              Отменить редактирование
+            </button>
+          </div>
+        </form>
+
+        <!-- БЛОК ФИЛЬТРАЦИИ И УПРАВЛЕНИЯ -->
+        <div class="film-controls">
+          <!-- Заголовок -->
+          <h2 class="film-controls__title">Управление фильмотекой</h2>
+
+          <div class="film-controls__grid">
+            <!-- ФИЛЬТРАЦИЯ ПО ТЕКСТУ -->
+            <div class="filter-group">
+              <h3 class="filter-group__title">Поиск фильмов</h3>
+              <div class="filter-inputs" data-filter-inputs>
+                <div class="filter-input">
+                  <label for="filter-title" class="filter-input__label"
+                    >По названию</label
+                  >
+                  <input
+                    type="text"
+                    id="filter-title"
+                    data-filter-title
+                    class="filter-input__field"
+                    placeholder="Введите название"
+                  />
+                </div>
+                <div class="filter-input">
+                  <label for="filter-genre" class="filter-input__label"
+                    >По жанру</label
+                  >
+                  <input
+                    type="text"
+                    id="filter-genre"
+                    data-filter-genre
+                    class="filter-input__field"
+                    placeholder="Введите жанр"
+                  />
+                </div>
+                <div class="filter-input">
+                  <label for="filter-year" class="filter-input__label"
+                    >По году</label
+                  >
+                  <input
+                    type="number"
+                    id="filter-year"
+                    data-filter-year
+                    class="filter-input__field"
+                    placeholder="Год выпуска"
+                    min="1888"
+                    max="2030"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- ФИЛЬТРАЦИЯ ПО СТАТУСУ -->
+            <div class="filter-group">
+              <h3 class="filter-group__title">Статус просмотра</h3>
+              <select
+                id="filter-status"
+                data-filter-status
+                class="filter-select"
+              >
+                <option value="all">Все фильмы</option>
+                <option value="watched">Просмотренные</option>
+                <option value="not-watched">Не просмотренные</option>
+              </select>
+            </div>
+
+            <!-- УПРАВЛЕНИЕ -->
+            <div class="control-group">
+              <h3 class="control-group__title">Действия</h3>
+              <button
+                type="button"
+                data-clear-all
+                class="control-btn control-btn--danger"
+              >
+                🗑️ Удалить все фильмы
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- БЛОК СОРТИРОВКИ -->
+        <div class="sort-section">
+          <h2 class="sort-section__title">Сортировка фильмов</h2>
+          <div class="sort-controls" data-sort-controls>
+            <button
+              type="button"
+              class="sort-controls__btn"
+              data-sort-by="title"
+            >
+              📝 По названию
+            </button>
+            <button
+              type="button"
+              class="sort-controls__btn"
+              data-sort-by="genre"
+            >
+              🎭 По жанру
+            </button>
+            <button
+              type="button"
+              class="sort-controls__btn"
+              data-sort-by="releaseYear"
+            >
+              📅 По году
+            </button>
+            <button
+              type="button"
+              class="sort-controls__btn sort-controls__btn--reset"
+              data-sort-by="default"
+            >
+              🔄 Сбросить
+            </button>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table id="film-table" data-film-table class="films-table">
+            <thead>
+              <tr>
+                <th scope="col">Название</th>
+                <th scope="col">Жанр</th>
+                <th scope="col">Год</th>
+                <th scope="col">Просмотрено</th>
+                <th scope="col">Действия</th>
+              </tr>
+            </thead>
+            <tbody id="film-tbody" data-film-tbody></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
