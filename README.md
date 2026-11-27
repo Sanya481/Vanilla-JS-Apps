@@ -1,4 +1,4 @@
-# 🎓 Study_Sandbox — практические проекты на JavaScript
+# 🎓 Vanilla-JS-Apps — сборник приложений на чистом JavaScript
 
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/ru/docs/Web/JavaScript)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -6,11 +6,11 @@
 
 > 🚀 Выполнено в рамках курса **«JavaScript»**  
 > ✨ Профессия «Веб-разработчик на PHP 3.0» от Skillbox  
-> 🎓 [Сертификат по «JavaScript»](docs/certificate-javascript.pdf)
+> 🎓 [Сертификат по «JavaScript»](public/docs/certificate-javascript.pdf)
 
 **11 самостоятельных мини-приложений на Vanilla JS** — общая навигация, единый SCSS-слой, multi-page сборка на Vite.
 
-🔗 **[Открыть демо](https://sanya481.github.io/ИМЯ_РЕПО/)**
+🔗 **[Открыть демо](https://sanya481.github.io/Vanilla-JS-Apps/)**
 
 ---
 

@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
+  base: '/Vanilla-JS-Apps/',
   root: '.', // Указываем корневую папку с исходниками (где index.html)
 
   publicDir: 'public', // Явно указываем папку с статикой
